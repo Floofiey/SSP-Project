@@ -3,6 +3,8 @@ import torch
 import pypdf
 import math
 import yaml
+import os
+
 
 #Okay so this code is just copied from Hugging Face's tutorial
 model_id = "google/gemma-3-1b-it"
@@ -14,6 +16,9 @@ model = Gemma3ForCausalLM.from_pretrained(
 ).eval()
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
+
+#Getting a string for the directory for file ops
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 #This function copied directly from G4G, Source: https://www.geeksforgeeks.org/python/working-with-pdf-files-in-python/
 def PDFsplit(pdf, splits):
@@ -31,7 +36,7 @@ def PDFsplit(pdf, splits):
         writer = pypdf.PdfWriter()
 
         # output pdf file name
-        outputpdf = pdf.split('.pdf')[0] + str(i) + '.pdf'
+        outputpdf = "OutputPDFS\\" + pdf.split('.pdf')[0] + str(i) + '.pdf'
 
         # adding pages to pdf writer object
         for page in range(start,end):
@@ -62,7 +67,7 @@ def calcSplits(totalpages):
 
 def zeroShotPrompter(filenum, splitnum):
     #okay let's fuck around and find out
-    splitname = 'cis-r' + str(filenum) + str(splitnum) + '.pdf'
+    splitname = dir_path + 'OutputPDFs/cis-r' + str(filenum) + str(splitnum) + '.pdf'
     splitfile = pypdf.PdfReader(splitname)
     finString = 'Take the following piece of a requirements document, and identify key data elements as well as all requirements the data element is mapped to, returning a Python nested dictionary of elements and requirements:  '
     for page in splitfile.pages:
@@ -72,7 +77,7 @@ def zeroShotPrompter(filenum, splitnum):
 
 def fewShotPrompter(filenum, splitnum):
     #AS WITH EVERYTHING IN THIS FILE, LET'S COPY/PASTE SOMETHING ELSE
-    splitname = 'cis-r' + str(filenum) + str(splitnum) + '.pdf'
+    splitname = dir_path + 'OutputPDFs/cis-r' + str(filenum) + str(splitnum) + '.pdf'
     splitfile = pypdf.PdfReader(splitname)
     finString = "Take the following piece of a requirements document, and identify key data elements as well as all ' \
                    requirements the data element is mapped to, returning a Python nested dictionary of elements and requirements with the format {elementnumber : [{name : }, {requirements : [req1, req2, ...]}]}:  "
@@ -82,7 +87,7 @@ def fewShotPrompter(filenum, splitnum):
     return finString
 
 def thoughtChainPrompter(filenum, splitnum, example):
-    splitname = 'cis-r' + str(filenum) + str(splitnum) + '.pdf'
+    splitname = dir_path + 'OutputPDFs/cis-r' + str(filenum) + str(splitnum) + '.pdf'
     splitfile = pypdf.PdfReader(splitname)
     finString = "Take the given text and identify key data elements within it. You should only return a nested dictionary written as a Python code block focusing on the found key data elements and all of the specific requirements tied to them by following the format of this example:" + example + "\nDo not give an overview of the document. Do not simply summarize the sections or pages. Do not organize by page. Do not list recommendations nor remediations. Explicitly focus on the data element names and the requirements tied to them, citing the requirement number for each entry. Again, format it as a Python nested dictionary within a code block. Here is the text to analyze: "
     for page in splitfile.pages:
@@ -104,8 +109,8 @@ def extractor():
     print("Thank you.")
 
     #Build the file names and initialize the pdfs
-    fileString1 = "cis-r" + str(input1) + ".pdf"
-    fileString2 = "cis-r" + str(input2) + ".pdf"
+    fileString1 = dir_path + "SourcePDFs/cis-r" + str(input1) + ".pdf"
+    fileString2 = "SourcePDFs/cis-r" + str(input2) + ".pdf"
     file1 = pypdf.PdfReader(fileString1)
 
 
@@ -125,7 +130,7 @@ def extractor():
 #Alright let's run these 0-shot prompts.
    
         #Step 1: I'm making the output file.
-    outstring = "cis-r" + str(input1)
+    outstring = dir_path + "OutputTXT/cis-r" + str(input1)
     outfile1 = open(outstring + ".txt", 'w')
     outfile1.write("Gemma3-1B \nPrompt: Take the following piece of a requirements document, and identify key data elements as well as all requirements the data' \
                         element is mapped to, returning a Python nested dictionary of elements and requirements: \nZero shot  \n output: ")
@@ -239,7 +244,7 @@ def extractor():
                    feature gates to enable automatic server certificate rotation."""
     
     #WATCH THIS DRIVE, NOW WITH YAML
-    outyaml1 = open(fileString1.split('.pdf')[0] + '.yaml', 'w')
+    outyaml1 = open(dir_path + "OutputYAMLs/" + fileString1.split('.pdf')[0] + '.yaml', 'w')
     outfile1.write("\n \nGemma3-1B \nPrompt: \"Take the given text and identify key data elements within it. You should only return a nested dictionary written " \
         "as a Python code block focusing on the found key data elements and all of the specific requirements tied to them by following the format of this example:" + guide + 
         "\nDo not give an overview of the document. Do not simply summarize the sections or pages. Do not organize by page. Do not list recommendations nor remediations. Explicitly "
@@ -327,7 +332,7 @@ def extractor():
     file2.close()
 
     #Yo watch this copy/paste from file1
-    outstring = "cis-r" + str(input2) + "(2).txt"
+    outstring = dir_path + "OutputTXT/cis-r" + str(input2) + "(2).txt"
     outfile2 = open(outstring, 'w')
     outfile2.write("Gemma3-1B \nPrompt: Take the following piece of a requirements document, and identify key data elements as well as all requirements the data' \
                         element is mapped to, returning a Python nested dictionary of elements and requirements: \nZero shot  \n output: ")
@@ -414,7 +419,7 @@ def extractor():
     
     #Aaaaaand that's file 2 for few prompt!
     #More unabashed copying inbound!
-    outyaml2 = open(fileString2.split('.pdf')[0] + '.yaml', 'w')
+    outyaml2 = open(dir_path + "OutputYAMLs/" + fileString2.split('.pdf')[0] + '.yaml', 'w')
     outfile2.write("\n \nGemma3-1B \nPrompt: Take the given text, a piece of a CIS benchmark document, and identify key data elements within it. You should only return " \
         "a nested dictionary formatted for Python focusing on the found key data elements and all of the specific requirements tied to them by following the format of this " \
         "example:" + guide + "\nDo not give an overview of the document. Do not simply summarize the sections or pages. Do not organize by page. Do not list recommendations "
