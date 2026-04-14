@@ -1,0 +1,281 @@
+appendix:
+- Summary Table
+- Terms of Use
+- Intended Audience
+- Consensus Guidance
+- Typographical Conventions
+- Recommendation Definitions
+- Rationale Statement
+- Impact Statement
+- Audit Procedure
+- Remediation Procedure
+- Default Value
+- References
+- "CIS Controls\xAE (CIS Controls\xAE)"
+- Additional Information
+- Profile Definitions
+- Acknowledgement
+- Recommendations
+- Remediation Procedure
+- References
+- "CIS Controls\xAE (CIS Controls\xAE)"
+- Additional Information
+- Profile Definitions
+- Acknowledgement
+- Page 26
+- Page 27
+- Page 28
+- Page 29
+- Page 30
+- Page 31
+- Page 32
+- Page 33
+- Page 34
+- Page 35
+- Page 36
+- Page 37
+- Page 38
+- Page 39
+- Page 40
+- Page 41
+- Page 42
+- Page 43
+page_number: 1
+title: CIS Amazon Elastic Kubernetes Service (EKS) Benchmark v1.2.0 - 11-23-2022
+element1:
+  name: Kubernetes Security Configurations
+  requirements:
+  - Systemctl daemon-reload
+  - systemctl restart kubelet
+  - 'systemctl status kubelet -l Default Value: See the Amazon EKS documentation for
+    the default value.'
+  - kubectl proxy --port=8001 & export HOSTNAME_PORT=localhost:8001 export NODE_NAME=ip-192.168.31.226.ec2.internal
+  - kubectl proxy --port=8001 & export HOSTNAME_PORT=localhost:8001 export NODE_NAME=ip-192.168.31.226.ec2.internal
+  - kubectl get psp -o json
+  - kubectl get psp <name> -o=jsonpath='{.spec.privileged}'
+  - kubectl get psp -o=jsonpath='{.spec.hostPID}'
+  - kubectl get psp -o=jsonpath='{.spec.hostIPC}'
+  - kubectl get psp -o=jsonpath='{.spec.hostIPC}'
+  - kubectl get psp -o=jsonpath='{.spec.hostPID}'
+  - kubectl get psp -o=jsonpath='{.spec.hostIPC}'
+  - kubectl get psp -o=jsonpath='{.spec.hostIPC}'
+element10:
+  name: Systemctl Daemon-reload
+  requirements:
+  - Systemctl daemon-reload
+element11:
+  name: Systemctl Restart
+  requirements:
+  - Systemctl restart
+element12:
+  name: kubectl proxy
+  requirements:
+  - kubectl proxy
+element13:
+  name: EKS Documentation
+  requirements:
+  - EKS documentation
+element14:
+  name: AWS EKS Best Practices
+  requirements:
+  - AWS EKS best practices
+element15:
+  name: Pod Security Policy (PSP)
+  requirements:
+  - Pod Security Policy
+element2:
+  name: Pod Security Policies (PSPs)
+  requirements:
+  - Minimize admission of containers wishing to share the host process ID namespace
+  - Restrict administrator privileges to dedicated administrator accounts
+element3:
+  name: Container Optimized OS
+  requirements:
+  - Use standard, industry-recommended hardening configuration templates for application
+    infrastructure components.
+element4:
+  name: RBAC and Service Accounts
+  requirements:
+  - Ensure that the cluster-admin role is only used where required
+  - Restrict administrator privileges to dedicated administrator accounts
+element5:
+  name: Pod Security Policies (PSPs)
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+  - Restrict administrator privileges to dedicated administrator accounts
+element6:
+  name: Secure Configuration Processes
+  requirements:
+  - Establish and maintain a secure configuration process for enterprise assets
+element7:
+  name: Container Image Security
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+element8:
+  name: Kubernetes Control Panel
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+element9:
+  name: Pod Security Policies
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+element1:
+  name: AWS EKS Key Management Service
+  requirements:
+  - Utilize AWS EKS Key Management Service to manage secrets securely.
+  - Implement a robust key rotation strategy.
+  - Regularly review and update access policies.
+  - Leverage AWS KMS for encryption and access control.
+  - Utilize KMS-managed keys for enhanced security.
+element10:
+  name: ECR Registry
+  requirements:
+  - Only use ECR registry.
+  - Utilize ECR security policies.
+element2:
+  name: IAM Roles for Service Accounts
+  requirements:
+  - Use IAM roles to grant permissions to Kubernetes services.
+  - Associate IAM roles with service accounts.
+  - Restrict role bindings to the minimum necessary permissions.
+  - Securely manage service account credentials.
+element3:
+  name: AWS KMS
+  requirements:
+  - Utilize AWS KMS for encryption and access control.
+  - Manage encryption keys using KMS.
+  - Implement key rotation for KMS keys.
+element4:
+  name: PodSecurityPolicies
+  requirements:
+  - Configure PodSecurityPolicies to restrict container privileges.
+  - Enable the default PodSecurityPolicy.
+  - Restrict containers access to other resources.
+element5:
+  name: Network Policies
+  requirements:
+  - Implement network policies to control communication between pods.
+  - Follow network policy best practices.
+  - Implement security best practices in network policies.
+element6:
+  name: Least Privilege Principle
+  requirements:
+  - Apply least privilege principle.
+  - Restrict service account permissions.
+element7:
+  name: IAM Roles
+  requirements:
+  - Use IAM roles to manage permissions for Kubernetes workers.
+  - Properly configure roles for service accounts.
+element8:
+  name: Automated Patch Management
+  requirements:
+  - Implement and maintain automated patching processes.
+  - Automated patching to ensure systems are up-to-date.
+element9:
+  name: Container Image Scanning
+  requirements:
+  - Implement comprehensive container image scanning protocols.
+  - Implement image scanning to identify vulnerabilities.
+  - Implement image scanning to ensure that images are compliant with security standards.
+CIS Controls:
+  Controls:
+  - Page 133
+  - Page 134
+  - Page 135
+  - Page 136
+  - Page 137
+  - Page 138
+  - Page 139
+  - Page 140
+  - Page 141
+  - Page 142
+  - Page 143
+  - Page 144
+  - Page 145
+  - Page 146
+  - Page 147
+  - Page 148
+  - Page 149
+  - Page 150
+  - Page 151
+  - Page 152
+  - Page 153
+  - Page 154
+  - Page 155
+  - Page 156
+  - Page 157
+  - Page 158
+  - Page 159
+  - Page 160
+  - Page 161
+  - Page 162
+  - Page 163
+  - Page 164
+  - Page 165
+  - Page 166
+  - Page 167
+  - Page 168
+  - Page 169
+  - Page 170
+  - Page 171
+  - Page 172
+  - Page 173
+  - Page 174
+  - Page 175
+  - Page 176
+  - Page 177
+  - Page 178
+  - Page 179
+  - Page 180
+Controls:
+  Controls Map:
+  - 1.2.0
+  Controls Version:
+  - 11/14/2022
+  - 1.2.0
+  Pages:
+  - Page 133
+  - Page 134
+  - Page 135
+  - Page 136
+  - Page 137
+  - Page 138
+  - Page 139
+  - Page 140
+  - Page 141
+  - Page 142
+  - Page 143
+  - Page 144
+  - Page 145
+  - Page 146
+  - Page 147
+  - Page 148
+  - Page 149
+  - Page 150
+  - Page 151
+  - Page 152
+  - Page 153
+  - Page 154
+  - Page 155
+  - Page 156
+  - Page 157
+  - Page 175
+  - Page 176
+  - Page 177
+  - Page 178
+  - Page 179
+  - Page 180
+Page 138: By enabling the 'Client CA File' option during cluster creation, the client
+  certificates are integrated with the system, providing enhanced security.
+References:
+- 1. https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
+- 2. https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+- 3. https://docs.aws.amazon.com/eks/latest/userguide/data-protection.html
+- 4. https://docs.aws.amazon.com/eks/latest/userguide/ef.html
+- 5. https://docs.aws.amazon.com/eks/latest/userguide/k8s-configuration.html
+- 6. https://docs.aws.amazon.com/eks/latest/userguide/kubeconfig.html
+Remediation:
+  Page 137: By enabling the 'Encrypt Sensitive Data at Rest' option during cluster
+    creation, the Kubernetes secrets are protected by a Customer Master Key (CMK)
+    managed by AWS KMS.

@@ -258,14 +258,15 @@ def extractor():
         attempts = 0
         while not valid:
             attempts += 1
-            if attempts > 10:
+            totalstring = ""
+            if attempts > 6:
                 print ("Part " + str(i + 1) + " of pdf 1 is being deemed impossible due to repeated failures of valid output. Continuing to next string.")
                 break
             currPrompt = ''
             currPrompt = thoughtChainPrompter(input1, i, guide)
             #Okay this should rewrite the prompt every time to feed it into this nightmare
             #   And turn it into something usable
-            fewPrompt1 = [
+            thoughtChainPrompt1 = [
                 [
                     {
                         "role":"system",
@@ -279,7 +280,7 @@ def extractor():
             ]
             #This is what the LLM actually sees.\
             inputs = tokenizer.apply_chat_template(
-                fewPrompt1,
+                thoughtChainPrompt1,
                 add_generation_prompt=True,
                 tokenize=True,
                 return_dict=False,
@@ -333,6 +334,7 @@ def extractor():
 
     #Yo watch this copy/paste from file1
     outstring = dir_path + "/OutputTXT/cis-r" + str(input2) + "(2).txt"
+    teststring = dir_path + "/OutputTXT/FILE2TESTING.txt"
     outfile2 = open(outstring, 'w')
     outfile2.write("Gemma3-1B \nPrompt: Take the following piece of a requirements document, and identify key data elements as well as all requirements the data' \
                         element is mapped to, returning a Python nested dictionary of elements and requirements: \nZero shot  \n output: ")
@@ -419,7 +421,8 @@ def extractor():
     
     #Aaaaaand that's file 2 for few prompt!
     #More unabashed copying inbound!
-    outyaml2 = open(dir_path + "/OutputYAMLs/" + "cis-r" + str(input2)  + '.yaml', 'w')
+    testfile = open(teststring, 'w')
+    outyaml2 = open(dir_path + "/OutputYAMLs/" + "cis-r" + str(input2)  + '.yaml(2)', 'w')
     outfile2.write("\n \nGemma3-1B \nPrompt: Take the given text, a piece of a CIS benchmark document, and identify key data elements within it. You should only return " \
         "a nested dictionary formatted for Python focusing on the found key data elements and all of the specific requirements tied to them by following the format of this " \
         "example:" + guide + "\nDo not give an overview of the document. Do not simply summarize the sections or pages. Do not organize by page. Do not list recommendations "
@@ -428,9 +431,10 @@ def extractor():
         valid = False
         attempts = 0
         while not valid:
+            totalstring = ""
             attempts += 1
             #Lets the function time out, essentially.
-            if attempts >= 10:
+            if attempts > 10:
                 print("Part " + str(i + 1) + " of pdf 2 is being deemed impossible due to repeated failures of valid output. Continuing to next string.")
                 break
             currPrompt = ''
@@ -468,6 +472,7 @@ def extractor():
             totalstring = ''
             for string in outputs:
                 totalstring += string
+            testfile.write(totalstring)
             totalstring = totalstring.split('<end_of_turn>')[1]
         
             #OKAY SO. In order to get this to parse properly to work in YAML
@@ -484,7 +489,7 @@ def extractor():
 
             try:
                 yamlstring = eval(yamlstring)
-                yaml.dump(yamlstring, outyaml1)
+                yaml.dump(yamlstring, outyaml2)
                 valid = True
                 print("Part " + str(i + 1) + " of PDF 2 successfully analyzed, continuing.")
             except:
