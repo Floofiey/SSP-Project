@@ -1,0 +1,556 @@
+benchmark_details:
+  assessment_status: Automated
+  default_values:
+  - Ensure that the kubeconfig file permissions are set to 644 or more restrictive
+    (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  - Ensure that the kubeconfig file has permissions of 644 or more restrictive (Automated).
+  description: This benchmark focuses on securing worker nodes within an EKS cluster,
+    ensuring proper configuration and monitoring.
+  mitigation_strategies:
+  - Use a dedicated Kubernetes service account with limited privileges.
+  - Restrict access to the Kubelet cluster using Role-Based Access Control (RBAC).
+  - Implement network policies to control communication between worker nodes and the
+    control plane.
+  - "Monitor the worker node\u2019s logs for abnormal activity."
+  name: 'CIS Control 3: Worker Nodes'
+  recommendations:
+  - Ensure that the Anonymous Auth is Not Enabled (Automated) - 1
+  - Ensure that the --authorization-mode argument must not be set to AlwaysAllow (Automated)
+    - 1
+  - Ensure that a Client CA File must be Configured (Automated) - 1
+  - Ensure that the --read-only-port must be disabled (Automated) - 1
+  - Ensure that the --streaming-connection-idle-timeout must not be 0 (Automated)
+    - 1
+  - Ensure that the --make-iptables-util-chains argument must be set to true (Automated)
+    - 1
+  - Ensure that the --eventRecordQPS must be set to 0 or an appropriate (Automated)
+    - 1
+  - Ensure that the --make-iptables-util-chains argument must be set to true (Automated)
+    - 1
+  - Ensure that the --make-iptables-util-chains argument must be set to true (Automated)
+    - 1
+  - Ensure that the --eventRecordQPS must be set to 0 or an appropriate (Automated)
+    - 1
+  - Ensure that the --read-only-port must be disabled (Automated) - 1
+  - Ensure that the --streaming-connection-idle-timeout must not be 0 (Automated)
+    - 1
+  - Ensure that the --make-iptables-util-chains argument must be set to true (Automated)
+    - 1
+  - Ensure that the --eventRecordQPS must be set to 0 or an appropriate (Automated)
+    - 1
+  - Ensure that the --make-iptables-util-chains argument must be set to true (Automated)
+    - 1
+  - Ensure that the --eventRecordQPS must be set to 0 or an appropriate (Automated)
+    - 1
+element1:
+  name: Pod Security Standards
+  requirements:
+  - Enable Pod Security Admission
+  - Ensure that only approved services are running
+  - Limit the admission of privileged containers
+element10:
+  name: Network Security
+  requirements:
+  - Secure network infrastructure
+  - Limit the use of webhooks
+element11:
+  name: Security Best Practices
+  requirements:
+  - Minimize the admission of privileged containers
+  - Regularly review and update cluster roles and policies
+element2:
+  name: Automated Updates
+  requirements:
+  - Regularly review and update cluster roles and policies
+  - Ensure that the cluster is automatically updated
+element3:
+  name: RBAC and Service Accounts
+  requirements:
+  - Restrict access to secrets to dedicated administrators
+  - Securely manage user roles and permissions
+  - Implement least privilege
+element4:
+  name: Network Security
+  requirements:
+  - Secure network infrastructure
+  - Limit the use of webhooks
+element5:
+  name: Pod Security Policies (Preview)
+  requirements:
+  - Disable the feature if it's deprecated
+  - Review existing policies and ensure that they're appropriate
+element6:
+  name: Access Control Policies
+  requirements:
+  - Implement Role-Based Access Control (RBAC)
+  - Ensure that permissions are not overly broad
+element7:
+  name: Continuous Monitoring
+  requirements:
+  - Monitor cluster security
+  - Audit logging events
+element8:
+  name: Configuration Management
+  requirements:
+  - Minimize the admission of privileged containers
+  - Utilize a secure configuration process
+element9:
+  name: Service Account Token Creation
+  requirements:
+  - Limit the use of service account token creation
+  - Disable automatic service account token creation
+element1: Kubernetes Security Configuration
+element10: Encryption
+element100: Kubelet Security Configuration
+element101: Container Security
+element102: Cluster Networking
+element103: Secrets Management
+element104: Kubelet Security Configuration
+element105: Container Security
+element106: Cluster Networking
+element107: Secrets Management
+element108: Kubelet Security Configuration
+element109: Container Security
+element11: Kubelet Security Configuration
+element110: Cluster Networking
+element111: Secrets Management
+element112: Kubelet Security Configuration
+element113: Container Security
+element114: Cluster Networking
+element115: Secrets Management
+element116: Kubelet Security Configuration
+element117: Container Security
+element118: Cluster Networking
+element119: Secrets Management
+element12: API Server Security
+element120: Kubelet Security Configuration
+element121: Container Security
+element122: Cluster Networking
+element123: Secrets Management
+element124: Kubelet Security Configuration
+element125: Container Security
+element126: Cluster Networking
+element127: Secrets Management
+element128: Kubelet Security Configuration
+element129: Container Security
+element13: Service Accounts
+element130: Cluster Networking
+element131: Secrets Management
+element132: Kubelet Security Configuration
+element133: Container Security
+element134: Cluster Networking
+element135: Secrets Management
+element136: Kubelet Security Configuration
+element137: Container Security
+element138: Cluster Networking
+element139: Secrets Management
+element14: Container Security
+element140: Kubelet Security Configuration
+element141: Container Security
+element142: Cluster Networking
+element143: Secrets Management
+element144: Kubelet Security Configuration
+element145: Container Security
+element146: Cluster Networking
+element147: Secrets Management
+element148: Kubelet Security Configuration
+element149: Container Security
+element15: Kubelet Security Configuration
+element150: Cluster Networking
+element151: Secrets Management
+element152: Kubelet Security Configuration
+element153: Container Security
+element154: Cluster Networking
+element155: Secrets Management
+element156: Kubelet Security Configuration
+element157: Container Security
+element158: Cluster Networking
+element159: Secrets Management
+element16: Pod Security Policy
+element160: Kubelet Security Configuration
+element161: Container Security
+element162: Cluster Networking
+element163: Secrets Management
+element164: Kubelet Security Configuration
+element165: Container Security
+element166: Cluster Networking
+element167: Secrets Management
+element168: Kubelet Security Configuration
+element169: Container Security
+element17: Network Policy
+element170: Cluster Networking
+element171: Secrets Management
+element172: Kubelet Security Configuration
+element173: Container Security
+element174: Cluster Networking
+element175: Secrets Management
+element176: Kubelet Security Configuration
+element177: Container Security
+element178: Cluster Networking
+element179: Secrets Management
+element18: IAM Roles
+element180: Kubelet Security Configuration
+element181: Container Security
+element182: Cluster Networking
+element183: Secrets Management
+element184: Kubelet Security Configuration
+element185: Container Security
+element186: Cluster Networking
+element187: Secrets Management
+element188: Kubelet Security Configuration
+element189: Container Security
+element19: Container Security
+element190: Cluster Networking
+element191: Secrets Management
+element192: Kubelet Security Configuration
+element193: Container Security
+element194: Cluster Networking
+element195: Secrets Management
+element196: Kubelet Security Configuration
+element197: Container Security
+element198: Cluster Networking
+element199: Secrets Management
+element2: Authentication Modes
+element20: Kubelet Security Configuration
+element200: Kubelet Security Configuration
+element201: Container Security
+element202: Cluster Networking
+element203: Secrets Management
+element204: Kubelet Security Configuration
+element205: Container Security
+element206: Cluster Networking
+element207: Secrets Management
+element208: Kubelet Security Configuration
+element209: Container Security
+element21: Service Accounts
+element210: Cluster Networking
+element211: Secrets Management
+element212: Kubelet Security Configuration
+element213: Container Security
+element214: Cluster Networking
+element215: Secrets Management
+element216: Kubelet Security Configuration
+element217: Container Security
+element218: Cluster Networking
+element219: Secrets Management
+element22: Cluster Networking
+element220: Kubelet Security Configuration
+element221: Container Security
+element222: Cluster Networking
+element223: Secrets Management
+element224: Kubelet Security Configuration
+element225: Container Security
+element226: Cluster Networking
+element227: Secrets Management
+element228: Kubelet Security Configuration
+element229: Container Security
+element23: Secrets Management
+element230: Cluster Networking
+element231: Secrets Management
+element232: Kubelet Security Configuration
+element233: Container Security
+element234: Cluster Networking
+element235: Secrets Management
+element236: Kubelet Security Configuration
+element237: Container Security
+element238: Cluster Networking
+element239: Secrets Management
+element24: IAM Roles
+element240: Kubelet Security Configuration
+element241: Container Security
+element242: Cluster Networking
+element243: Secrets Management
+element244: Kubelet Security Configuration
+element245: Container Security
+element246: Cluster Networking
+element247: Secrets Management
+element248: Kubelet Security Configuration
+element249: Container Security
+element25: Container Security
+element250: Cluster Networking
+element251: Secrets Management
+element252: Kubelet Security Configuration
+element253: Container Security
+element254: Cluster Networking
+element255: Secrets Management
+element256: Kubelet Security Configuration
+element257: Container Security
+element258: Cluster Networking
+element259: Secrets Management
+element26: Kubelet Security Configuration
+element260: Kubelet Security Configuration
+element261: Container Security
+element262: Cluster Networking
+element263: Secrets Management
+element264: Kubelet Security Configuration
+element265: Container Security
+element266: Cluster Networking
+element267: Secrets Management
+element268: Kubelet Security Configuration
+element269: Container Security
+element27: Service Accounts
+element270: Cluster Networking
+element271: Secrets Management
+element272: Kubelet Security Configuration
+element273: Container Security
+element274: Cluster Networking
+element275: Secrets Management
+element276: Kubelet Security Configuration
+element277: Container Security
+element278: Cluster Networking
+element279: Secrets Management
+element28: Cluster Networking
+element280: Kubelet Security Configuration
+element281: Container Security
+element282: Cluster Networking
+element283: Secrets Management
+element284: Kubelet Security Configuration
+element285: Container Security
+element286: Cluster Networking
+element287: Secrets Management
+element288: Kubelet Security Configuration
+element289: Container Security
+element29: Secrets Management
+element290: Cluster Networking
+element291: Secrets Management
+element292: Kubelet Security Configuration
+element293: Container Security
+element294: Cluster Networking
+element295: Secrets Management
+element296: Kubelet Security Configuration
+element297: Container Security
+element298: Cluster Networking
+element299: Secrets Management
+element3: Pod Security Policies
+element30: IAM Roles
+element300: Kubelet Security Configuration
+element31: Container Security
+element32: Kubelet Security Configuration
+element33: Container Security
+element34: Cluster Networking
+element35: Secrets Management
+element36: Kubelet Security Configuration
+element37: Container Security
+element38: Cluster Networking
+element39: Secrets Management
+element4: Network Policies
+element40: Kubelet Security Configuration
+element41: Container Security
+element42: Cluster Networking
+element43: Secrets Management
+element44: Kubelet Security Configuration
+element45: Container Security
+element46: Cluster Networking
+element47: Secrets Management
+element48: Kubelet Security Configuration
+element49: Container Security
+element5: Secrets Management
+element50: Cluster Networking
+element51: Secrets Management
+element52: Kubelet Security Configuration
+element53: Container Security
+element54: Cluster Networking
+element55: Secrets Management
+element56: Kubelet Security Configuration
+element57: Container Security
+element58: Cluster Networking
+element59: Secrets Management
+element6: IAM Roles
+element60: Kubelet Security Configuration
+element61: Container Security
+element62: Cluster Networking
+element63: Secrets Management
+element64: Kubelet Security Configuration
+element65: Container Security
+element66: Cluster Networking
+element67: Secrets Management
+element68: Kubelet Security Configuration
+element69: Container Security
+element7: Container Security
+element70: Cluster Networking
+element71: Secrets Management
+element72: Kubelet Security Configuration
+element73: Container Security
+element74: Cluster Networking
+element75: Secrets Management
+element76: Kubelet Security Configuration
+element77: Container Security
+element78: Cluster Networking
+element79: Secrets Management
+element8: Audit Trails
+element80: Kubelet Security Configuration
+element81: Container Security
+element82: Cluster Networking
+element83: Secrets Management
+element84: Kubelet Security Configuration
+element85: Container Security
+element86: Cluster Networking
+element87: Secrets Management
+element88: Kubelet Security Configuration
+element89: Container Security
+element9: Cluster Networking
+element90: Cluster Networking
+element91: Secrets Management
+element92: Kubelet Security Configuration
+element93: Container Security
+element94: Cluster Networking
+element95: Secrets Management
+element96: Kubelet Security Configuration
+element97: Container Security
+element98: Cluster Networking
+element99: Secrets Management
+element1:
+  name: Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element10:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element11:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element12:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element13:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element14:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element15:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element16:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element17:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element18:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element19:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element2:
+  name: Region Code
+  requirements: Ensure the region code is set to a valid value.
+element20:
+  name: EKS Region Code
+  requirements: Ensure the region code is set to a valid value.
+element21:
+  name: EKS Region Code
+  requirements: Ensure the region code is set to a valid value.
+element22:
+  name: EKS Region Code
+  requirements: Ensure the region code is set to a valid value.
+element23:
+  name: EKS Registry URL
+  requirements: The EKS registry URL should be valid.
+element24:
+  name: EKS Registry URL
+  requirements: The EKS registry URL should be valid.
+element25:
+  name: EKS Registry URL
+  requirements: The EKS registry URL should be valid.
+element26:
+  name: EKS Instance Type
+  requirements: The instance type should be valid.
+element27:
+  name: EKS Instance Type
+  requirements: The instance type should be valid.
+element28:
+  name: EKS Instance Type
+  requirements: The instance type should be valid.
+element29:
+  name: EKS Instance Type
+  requirements: The instance type should be valid.
+element3:
+  name: EKS Cluster Name
+  requirements: The cluster name must be provided and set to a valid value.
+element30:
+  name: EKS Security Configuration
+  requirements: Ensure the security configuration is set to a valid value.
+element31:
+  name: EKS Security Configuration
+  requirements: Ensure the security configuration is set to a valid value.
+element4:
+  name: Region Code
+  requirements: Ensure the region code is set to a valid value.
+element5:
+  name: EKS Cluster Name
+  requirements: The cluster name must be provided and set to a valid value.
+element6:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is valid.
+element7:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element8:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.
+element9:
+  name: EKS Cluster Name
+  requirements: Ensure the cluster name is set to a valid value.

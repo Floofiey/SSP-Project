@@ -1,0 +1,92 @@
+element1:
+  name: CIS Amazon Elastic
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+  - Internal Only - General
+element10:
+  name: Managed Services
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element11:
+  name: Important Usage Information
+  requirements:
+  - Internal Only - General
+element12:
+  name: CIS Controls
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element13:
+  name: CIS Controls
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element14:
+  name: CIS Controls
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element15:
+  name: CIS Controls
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element16:
+  name: CIS Controls
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element17:
+  name: CIS Controls
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element18:
+  name: CIS Controls
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element2:
+  name: Kubernetes Service (EKS)
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element3:
+  name: Benchmark
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+  - Internal Only - General
+element4:
+  name: Terms of Use
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element5:
+  name: Control Plane Components
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+  - Internal Only - General
+element6:
+  name: Worker Node Configuration Files
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element7:
+  name: Worker Node Configuration Files
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element8:
+  name: Policies
+  requirements:
+  - Internal Only - General
+  - Internal Only - General
+element9:
+  name: Managed Services
+  requirements:
+  - Internal Only - General
+  - Internal Only - General

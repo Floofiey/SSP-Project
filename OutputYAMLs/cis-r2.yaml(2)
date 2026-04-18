@@ -1,0 +1,180 @@
+Internal Only - General:
+  Additional Information: Additional Information
+  Apply the Correct Version of a Benchmark: Apply the Correct Version of a Benchmark
+  Audit Procedure: Audit Procedure
+  Benchmark - Configuration: Benchmark - Configuration
+  Benchmark - Details: Benchmark - Details
+  Benchmark - Requirements: Benchmark - Requirements
+  Benchmark - Rules: Benchmark - Rules
+  Benchmark - Summary: Benchmark - Summary
+  Benchmark - Target: Benchmark - Target
+  Benchmark Recommendations: Benchmark Recommendations
+  "CIS Critical Security Controls\xAE (CIS Controls)": "CIS Critical Security Controls\xAE\
+    \ (CIS Controls\xAE)"
+  Consensus Guidance: Consensus Guidance
+  Control Plane Components: Control Plane Components
+  Default Value: Default Value
+  Exceptions: Exceptions
+  Important Usage Information: Key Stakeholders
+  Intended Audience: Intended Audience
+  Internal Only - General: Internal Only - General
+  Managed Services: Managed Services
+  Profile Applicability: Profile Applicability
+  Profile Definitions: Profile Definitions
+  Recommendation Definitions: Recommendation Definitions
+  Recommendations: Recommendations
+  References: References
+  Remediation: Remediation
+  Remediation Procedure: Remediation Procedure
+  Summary: Summary
+  Table of Contents: Overview
+  Target Technology Details: Target Technology Details
+  Terms of Use: "Please see the below link for our current terms of use:\n https://www.cisecurity.org/cis-securesuite/cis-securesuite-membership-terms-of-use/"
+  Typographical Conventions: Typographical Conventions
+- controls:
+  - Version Control IG 1 IG 2 IG 3 v8
+  element: CIS Controls
+- controls:
+  - Pod Security Standards (PSS) v8
+  element: Controls
+- element: References
+  references:
+  - https://aws.amazon.com/blogs/containers/a-deep-dive-into-simplified-amazon-eks-access-management-controls/
+  - https://www.eksworkshop.com/docs/security/cluster-access-management/understanding
+  - https://raesene.github.io/blog/2021/01/12/Escalating_Away/
+  - https://raesene.github.io/blog/2021/01/16/Getting-Into-A-Bind-with-Kubernetes/
+- controls:
+  - Version Control IG 1 IG 2 IG 3 v8
+  description: CIS Controls
+  element: Internal Only - General
+- controls:
+  - Pod Security Standards (PSS) v8
+  description: CIS Controls
+  element: Internal Only - General
+- controls:
+  - Pod Security Standards (PSS) v8
+  description: CIS Controls
+  element: Internal Only - General
+- controls:
+  - Pod Security Standards (PSS) v8
+  description: CIS Controls
+  element: Internal Only - General
+- controls:
+  - Pod Security Standards (PSS) v8
+  description: CIS Controls
+  element: Internal Only - General
+- controls:
+  - Pod Security Standards (PSS) v8
+  description: CIS Controls
+  element: Internal Only - General
+- controls:
+  - Pod Security Standards (PSS) v8
+  description: CIS Controls
+  element: Internal Only - General
+- controls:
+  - Pod Security Standards (PSS) v8
+  description: CIS Controls
+  element: Internal Only - General
+element1:
+  audit: Run this command and review the policies in use for each namespace in the
+    cluster, ensure that each policy           disallows the admission of privileged
+    containers.
+  impact: Pods defined with user workloads to restrict the admission of privileged
+    containers.
+  name: Internal Only - General
+  rationale: This section provides guidance on implementing policies to restrict privileged
+    container access.
+  requirements:
+  - List the policies in use for each namespace in the cluster, ensure that each policy                 disallows
+    the admission of privileged containers.
+  - Audit the policies in use for each namespace in the cluster, ensure that each
+    policy                 disallows the admission of privileged containers.
+element2:
+  controls:
+  - Controls
+  - Version Control IG 1 IG 2 IG 3 v8
+  impact: Ensure that all users with administrative account access use a dedicated
+    or secondary account for elevated activities. This account should only be used
+    for administrative activities and not internet browsing, email, or similar activities.
+  name: CIS Controls
+  rationale: The text mentions implementing CIS Controls for version control, and
+    RBAC to limit privileged container access.
+element3:
+  impact: Protecting sensitive data by securing secrets at the application layer.
+  name: AWS EKS Key Management Service
+  rationale: The text recommends using AWS Key Management Service (KMS) to encrypt
+    Kubernetes secrets, which provides a defense-in-depth strategy against threats.
+  recommendations:
+  - Ensure Kubernetes Secrets are encrypted using Customer Managed Keys (CMKs) managed
+    in AWS KMS (Manual).
+  - Enable the encryption provider support during EKS cluster creation.
+  - Implement envelope encryption of Kubernetes secrets stored in Amazon EKS.
+  - Implement the KVM key management service to provide a security best practice for
+    sensitive data.
+element4:
+  name: IAM Role Policy
+  rationale: This section provides recommendations on using IAM roles to control permissions
+    to prevent an overreach in the cluster's permissions.
+  recommendations:
+  - Prefer using dedicated EKS Service Accounts (Service Account Name)
+  - 'Ensure the service account has no roles or cluster roles bound to it. Verify
+    that the service account has no roles or cluster roles bound to it. '
+  - Ensure that the default service account's permissions are set to 'No Access' or
+    'Limited Access'.
+element5:
+  name: Internal Only - General
+  rationale: This section contains guidelines for the audit and remediation of policies
+    to ensure that they are compliant.
+  recommendations:
+  - Audit the policies in use for each namespace in the cluster, ensure that each
+    policy                 disallows the admission of privileged containers.
+  - Audit the policies in use for each namespace in the cluster, ensure that each
+    policy                 disallows the admission of privileged containers.
+API_Server:
+- Description: API Server should be configured with a TLS Certificate to ensure the
+    API is secured.
+  Name: API Server
+  Remediation: Ensure that the API is protected by a TLS certificate.
+CIS_Controls:
+- Control: Encryption
+  Description: This process can only be performed during Cluster Creation. Enable
+    'Secrets Encryption' during Amazon EKS cluster creation as described in the 'References'
+    section.
+  Remediation: By enabling encryption, all communication between nodes and the API
+    server stays within the node network. This ensures secure data transfer and protection
+    against unauthorized access.
+- Control: Cluster Networking
+  Description: This section contains recommendations relating to network security
+    configurations in Amazon EKS. Configure the EKS endpoint to be private.  By enabling
+    private node access, all traffic is routed to the EKS cluster's API server.
+  Remediation: To prevent unauthorized access, consider limiting access to only authorized
+    IP addresses.
+- Control: Security
+  Description: This section contains recommendations relating to authentication and
+    authorization.  Implement Network Policy with an appropriate rule set to enhance
+    security. The configuration should be based on the specific application, or the
+    system that needs to be protected.
+Cluster_Networking:
+- Configuration: Cluster Configuration
+  Description: The cluster configuration should ensure all nodes in the cluster can
+    communicate with each other.
+  Remediation: The network configuration should be enhanced to include all nodes within
+    the cluster.
+Event_Management:
+- Description: Consider a firewall to restrict access to the Kubernetes API.
+  Remediation: Utilize a firewall to provide additional security.
+Pod_Security_Policy:
+- Description: The Pod Security Policy should be implemented.
+  Remediation: Implement the Pod Security Policy to secure the application stack.
+Secrets:
+- Description: Key provider should be secured and protected.  This ensures the correct
+    access to the key.
+  Provider: Key Provider
+  Remediation: Implement a secure key provider for key management.
+Service_Account_Management:
+- Description: Service account management is essential for security.
+  Remediation: Use service account management to secure application access.
+Worker_Nodes:
+- Description: Ensure that all workers are running the latest version of the cluster.
+  Name: Worker Node
+  Remediation: Ensure cluster is updated to the latest version.
