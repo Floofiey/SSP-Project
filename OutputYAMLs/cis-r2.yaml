@@ -1,0 +1,75 @@
+CIS Controls:
+  Version Control IG 1 IG 2 IG 3:
+    Audit Procedure: The audit procedure needs to be performed to confirm the correct
+      configuration.
+    Controls:
+    - Ensure that the kubelet kubeconfig file has permissions set to 644 or more restrictive
+    Default Value: The configuration file permissions are set to 644 or more restrictive.
+    Impact Statement: The security measures will be implemented according to the system's
+      needs.
+    Rationale Statement: The configuration will be correct for the system's security
+      requirements.
+    Remediation Procedure: The correct permissions must be set for the configuration
+      file.
+controls:
+- control_id: v8
+  control_name: Version Control IG 1 IG 2 IG 3 v8
+  description: Restrict Administrator Privileges to Dedicated Administrator Accounts
+  impact: 'If configuring via the Kubelet config file, you first need to locate the
+    Kubelet process, from which we can see the location of the configuration file
+    provided to the kubelet service with the --config argument. The file can be viewed
+    with a command such as more or less, like so:  sudo less /path/to/kubelet-config.json'
+document_type: Internal Only - General
+page_number: 42
+topic: General
+element1: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of privileged containers.'
+element10: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element11: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of containers which allow privilege escalation.'
+element12: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element13: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of containers which allow privilege escalation.'
+element14: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element15: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of containers which allow privilege escalation.'
+element16: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element17: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of containers which allow privilege escalation.'
+element18: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element19: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of containers which allow privilege escalation.'
+element2: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element20: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element3: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of containers which allow privilege escalation.'
+element4: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element5: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of containers which allow privilege escalation.'
+element6: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element7: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of containers which allow privilege escalation.'
+element8: 'Remediation: Add policies to each namespace in the cluster which has user
+  workloads to restrict the admission of privileged containers.'
+element9: 'Audit: List the policies in use for each namespace in the cluster, ensure
+  that each policy disallows the admission of containers which allow privilege escalation.'
+Internal Only - General:
+- Provider:
+    KeyArn: string
+  Resources:
+  - string
+- References:
+  - 1. https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+  Remediation:
+    Description: By default secrets created using the Kubernetes API are stored in
+      tmpfs and are encrypted at rest.
+Page Number: 127
