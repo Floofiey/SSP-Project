@@ -1,0 +1,226 @@
+element1:
+  name: Terms of Use
+  requirements:
+  - 'Please see the below link for our current terms of use: https://www.cisecurity.org/cis-securesuite/cis-securesuite-membership-terms-of-use/'
+element10:
+  name: "CIS Critical Security Controls\xAE"
+  requirements:
+  - The mapping between recommendations and CIS Controls is presented on page 14
+element11:
+  name: "CIS Controls\xAE"
+  requirements:
+  - These controls include the CIS Controls 1- 6.  The mapping between recommendations
+    and CIS Controls is presented on page 14
+element12:
+  name: "CIS Controls\xAE"
+  requirements:
+  - This section contains the mapping of the CIS Controls 1-6 to the documentation.
+    As such, this section is relevant to the following recommendations.
+element13:
+  name: "CIS Controls\xAE"
+  requirements:
+  - The CIS Controls document outlines their principles and the implementation of
+    security policies.
+element14:
+  name: "CIS Controls\xAE"
+  requirements:
+  - This section details how to obtain a security policy. This is the only way to
+    implement any of the CIS Controls.
+element15:
+  name: "CIS Controls\xAE"
+  requirements:
+  - This document has an overview on the CIS Controls, which includes the implementation
+    for the best practices that can be achieved.
+element16:
+  name: "CIS Controls\xAE"
+  requirements:
+  - This can be found on page 18
+element17:
+  name: "CIS Controls\xAE"
+  requirements:
+  - For the CIS Controls, a high-level overview of the components is provided in section
+    18
+element2:
+  name: Table of Contents
+  requirements:
+  - For information on referencing and/or citing CIS Benchmarks in 3rd party documentation
+    (including using portions of Benchmark Recommendations)
+  - 'Note: The below document contains the table of contents, to facilitate review.
+    It is important that a full understanding of the documentation is achieved.'
+element3:
+  name: Key Stakeholders
+  requirements:
+  - Cybersecurity is a collaborative effort, and cross-functional cooperation is imperative
+    within an organization to secure the system. This guide is useful for those stakeholders.
+element4:
+  name: Apply the Correct Version of a Benchmark
+  requirements:
+  - Benchmark are created to be as effective as possible. The benchmarking is applied
+    with the understanding that many different types of configurations may be applicable
+    to each benchmark.
+element5:
+  name: Exceptions
+  requirements:
+  - Exceptions to some recommendations will be required in the documentation to help
+    implement any changes to the system.
+element6:
+  name: Remediation
+  requirements:
+  - Any remediation steps must be documented on the document. It is critical to document
+    and provide an audit chain of events when remediating.
+element7:
+  name: Summary
+  requirements:
+  - The following document provides a summary of the above benchmark. More references
+    and documentation can be found in the reference section.
+element8:
+  name: Profile
+  requirements:
+  - Profile is useful for maintaining a level of security. This allows monitoring
+    to improve the stability of the overall system.
+element9:
+  name: Recommendations
+  requirements:
+  - The following document provides a list of the recommended features. Implementation
+    requires additional resources.
+element1:
+  name: Kubernetes Security Configuration
+  references:
+  - https://kubernetes.io/docs/admin/kubelet/
+  requirements: 'Verify Webhook Authentication is enabled, verify Authorization Mode
+    is set to Webhook, Audit Method 2:  Verify Webhook Authentication is enabled with
+    ''authentication'': { "webhook": { "enabled": true } }'
+element10:
+  audit: 'Audit Method 1: Verify that the --read-only-port parameter is not set to
+    0. Audit Method 2: Audit Method 2: Verify that the --read-only-port parameter
+    is set to 0'
+  name: General Namespace Policies
+  references:
+  - 'req8:  Audit Method 2:  Verify that the --read-only-port parameter is set to
+    0'
+  requirements: 'Audit Method 1: Verify that the --read-only-port parameter is not
+    set to 0. Audit Method 2: Verify that the --read-only-port parameter is set to
+    0'
+element11:
+  audit: 'Audit Method 1: Verify that the --read-only-port parameter is not set to
+    0. Audit Method 2: Verify that the --read-only-port parameter is set to 0'
+  name: General Namespace Policies
+  references:
+  - 'req8:  Audit Method 2:  Verify that the --read-only-port parameter is set to
+    0'
+  requirements: 'Audit Method 1: Verify that the --read-only-port parameter is not
+    set to 0. Audit Method 2: Verify that the --read-only-port parameter is set to
+    0'
+element2:
+  audit: 'Audit Method 1:  Verify Webhook Authentication is enabled with ''authentication'':
+    { "webhook": { "enabled": true } }'
+  name: CNI Plugin and Network Policies
+  requirements: Verify that the CNI plugin must support network policies, and ensure
+    that all Namespaces have Network Policies defined, and verify the Authorization
+    Mode is set to Webhook.
+element3:
+  name: Secrets Management
+  references:
+  - 4.4.1 (Automated, L1) The CNI plugin must support network policies - confirm the
+    deployed CNI (e.g., Calico, Cilium, or VPC CNI with network policy support) enforces
+    NetworkPolicy resources.
+  requirements: 'Verify that the --read-only-port argument exists, and the Authorization
+    Mode is set to Webhook. Audit Method 2: If using a Kubelet configuration file,
+    check that there are entries for the --read-only-port argument'
+element4:
+  audit: 'Audit Method 1: Check that the --read-only-port argument is not present.
+    Audit Method 2: Check for the existence of the --read-only-port parameter. Verify
+    the --read-only-port parameter is set to 0.'
+  name: General Namespace Policies
+  references:
+  - 'req5:  req3:  Verify that a client CA File is Configured (Automated)'
+  requirements: Verify that the --read-only-port argument is not present, or verify
+    that it exists. Verify the --read-only-port is set to 0, ensure the --read-only-port
+    is disabled
+element5:
+  audit: 'Audit Method 1: Ensure the --read-only-port parameter exists, and verify
+    that it is set to 0'
+  name: General Namespace Policies
+  references:
+  - 'req6:  req4:  Verify that the --read-only-port argument is not set to 0. Audit
+    Method 2: Verify that the --read-only-port parameter is set to 0'
+  requirements: Ensure the --read-only-port parameter exists, and that it is set to
+    0
+element6:
+  name: Secrets Management
+  references:
+  - 'req7:  req8:  Verify the --read-only-port argument is not set to 0. Audit Method
+    2:  Verify the --read-only-port parameter is set to 0'
+  requirements: 'Ensure that the --read-only-port argument is enabled. Audit Method
+    1: Check the value of the --read-only-port parameter.'
+element7:
+  audit: 'Audit Method 1: Check for the existence of a --read-only-port parameter.
+    Audit Method 2: Check for the existence of a --read-only-port parameter and verify
+    that it is not set to 0.'
+  name: General Namespace Policies
+  references:
+  - 'req8: Audit Method 2: Verify the --read-only-port parameter is not set to 0.'
+  requirements: Ensure that --read-only-port parameter is not set to 0
+element8:
+  audit: 'Audit Method 1: Check for the existence of the --read-only-port parameter.
+    Audit Method 2: Check for the existence of the --read-only-port parameter and
+    verify that it is not set to 0'
+  name: General Namespace Policies
+  references:
+  - 'req5:  req6:  Verify that --read-only-port is not set to 0. Audit Method 2: Verify
+    the --read-only-port parameter is set to 0'
+  requirements: 'Audit Method 1: Check for the existence of the --read-only-port parameter.
+    Audit Method 2: Verify the --read-only-port parameter is set to 0'
+element9:
+  audit: 'Audit Method 1: Verify that the --read-only-port parameter is not set to
+    0. Audit Method 2:  Verify the --read-only-port parameter is set to 0'
+  name: General Namespace Policies
+  references:
+  - 'req7:  req8:  Verify that --read-only-port is not set to 0. Audit Method 2: Verify
+    the --read-only-port parameter is set to 0'
+  requirements: 'Audit Method 1: Verify that the --read-only-port parameter is not
+    set to 0. Audit Method 2: Verify that the --read-only-port parameter is set to
+    0'
+General:
+- Description: Use technical controls, such as application allowlisting, to ensure
+    that only authorized software can execute or be accessed.
+  Rationale: Limits unauthorized access to internal applications and services.
+- Description: Perform authenticated vulnerability scanning with agents running locally
+    on each system.
+  Rationale: Provides robust security assessment.
+- Description: Perform authenticated vulnerability scanning with agents running locally
+    on each system.
+  Rationale: Provides robust security assessment.
+Internal Only - General:
+- Description: Only allow access to authorized cloud storage or email providers.
+  Rationale: Prevents unauthorized access to cloud storage.
+- Description: Only allow access to authorized cloud storage or email providers.
+  Rationale: Prevents unauthorized access to cloud storage.
+- Description: Only allow access to authorized cloud storage or email providers.
+  Rationale: Prevents unauthorized access to cloud storage.
+CIS Controls:
+  Audit: 'Check for the following to be ''enabled: true'' Page 167'
+  Controls:
+  - Version Control IG 1
+  - Cluster Networking 2
+  - Secrets Management 3
+  - General Policies 4
+  - Network Policy 5
+  - Security 6
+  - Event RecordQPS 7
+  - Streaming Connection Idle Timeout 8
+  - Make iptables-util-chains 9
+  - Rotation Certificates 10
+  - Certificate Encryption 11
+  - Authentication and Authorization 12
+  - Cluster Access Manager API 13
+  - Pod Security Standards 14
+  - IAM 15
+  Rationale: These controls address security best practices across various aspects
+    of the EKS cluster architecture and operation.
+General Policies:
+  Requirements:
+  - Ensure that the default namespace should not be used
+Internal Only - General:
+  Appendix:
+  - CIS Controls v7 IG 1 IG 2 IG 3

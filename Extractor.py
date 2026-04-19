@@ -221,18 +221,18 @@ def extractor():
     #okay I need something to actually direct this thing.
     guide = """
     element1:
-      name: Kubelet Security Configuration
+        name: Kubelet Security Configuration
         requirements:
-            req1: "3.2.1 (Automated, L1) Anonymous authentication must be disabled — set
+            req1: "3.2.1 (Automated, L1) Anonymous authentication must be disabled - set
                 authentication.anonymous.enabled: false in the kubelet config file or pass
                 --anonymous-auth=false as a command-line argument."
-            req2: "3.2.2 (Automated, L1) --authorization-mode must not be set to AlwaysAllow —
+            req2: "3.2.2 (Automated, L1) --authorization-mode must not be set to AlwaysAllow -
                 verify the argument is absent or set to a restrictive mode (e.g., Webhook)."
-            req3: "3.2.3 (Automated, L1) A Client CA File must be configured — ensure
+            req3: "3.2.3 (Automated, L1) A Client CA File must be configured - ensure
                 --client-ca-file is set to a valid CA bundle in the kubelet config."
             req4: "3.2.4 (Automated, L1) --read-only-port must be disabled (set to 0) to prevent
                 unauthenticated access to kubelet metrics."
-            req5: "3.2.5 (Automated, L1) --streaming-connection-idle-timeout must not be 0 —
+            req5: "3.2.5 (Automated, L1) --streaming-connection-idle-timeout must not be 0 -
                    a non-zero timeout prevents indefinitely open streaming connections."
             req6: "3.2.6 (Automated, L1) --make-iptables-util-chains must be set to true to ensure
                    kubelet manages iptable rules correctly."
@@ -241,7 +241,30 @@ def extractor():
             req8: "3.2.8 (Automated, L1) --rotate-certificates must not be present or must be set
                    to true to enable automatic client certificate rotation."
             req9: "3.2.9 (Automated, L1) RotateKubeletServerCertificate must be set to true in the
-                   feature gates to enable automatic server certificate rotation."""
+                   feature gates to enable automatic server certificate rotation.
+    element2:
+        name: CNI Plugin and Network Policies
+            requirements:
+                req1: "4.3.1 (Manual, L1) The CNI plugin must support network policies - confirm the
+                deployed CNI (e.g., Calico, Cilium, or VPC CNI with network policy support)
+                enforces NetworkPolicy resources."
+                req2: "4.3.2 (Automated, L1) All Namespaces must have Network Policies defined -
+                create default-deny ingress/egress NetworkPolicy objects in every namespace."
+    element3:
+        name: Secrets Management
+        requirements:
+            req1: "4.4.1 (Automated, L1) Secrets must be mounted as files rather than exposed as
+                environment variables - use volume mounts with secretKeyRef, not env.valueFrom."
+            req2: "4.4.2 (Manual, L2) Consider using an external secret store (e.g., AWS Secrets Manager,
+                HashiCorp Vault) instead of native Kubernetes Secrets for enhanced protection."
+    element4:
+        name: General Namespace Policies
+        requirements:
+            req1: "4.5.1 (Manual, L1) Administrative boundaries must be created between resources
+                using namespaces - group workloads by team, environment, or sensitivity level."
+            req2: "4.5.2 (Automated, L2) The default namespace must not be used for workload
+                deployment - all application resources must reside in explicitly named namespaces."
+"""
     
     #WATCH THIS DRIVE, NOW WITH YAML
     outyaml1 = open(dir_path + "/OutputYAMLs/" + "cis-r" + str(input1) + '.yaml', 'w')
@@ -422,7 +445,7 @@ def extractor():
     #Aaaaaand that's file 2 for few prompt!
     #More unabashed copying inbound!
     testfile = open(teststring, 'w')
-    outyaml2 = open(dir_path + "/OutputYAMLs/" + "cis-r" + str(input2)  + '.yaml(2)', 'w')
+    outyaml2 = open(dir_path + "/OutputYAMLs/" + "cis-r" + str(input2)  + '(2).yaml', 'w')
     outfile2.write("\n \nGemma3-1B \nPrompt: Take the given text, a piece of a CIS benchmark document, and identify key data elements within it. You should only return " \
         "a nested dictionary formatted for Python focusing on the found key data elements and all of the specific requirements tied to them by following the format of this " \
         "example:" + guide + "\nDo not give an overview of the document. Do not simply summarize the sections or pages. Do not organize by page. Do not list recommendations "

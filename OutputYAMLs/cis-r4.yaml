@@ -1,0 +1,314 @@
+element1:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element10:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element11:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element12:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element13:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element14:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element15:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element16:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element17:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element18:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element19:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element2:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element20:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element3:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element4:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element5:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element6:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element7:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element8:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element9:
+  description: CIS Control - Restrict Administrator Privileges to Dedicated Administrator
+    Accounts
+  name: CIS Control
+element1:
+  name: Client CA File
+  requirements: Configure Kubelet authentication using certificates.
+element10:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'proxy sub-resource' setting.
+element11:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element12:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element13:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element14:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element15:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element16:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element17:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element18:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element19:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element2:
+  name: CNI Plugin and Network Policies
+  requirements: Use network policies, ensure only approved ports, protocols, and services
+    are running.
+element20:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element3:
+  name: Secrets Management
+  requirements: Secure all sensitive information in transit (TLS, OpenSSH).
+element4:
+  name: General Namespace Policies
+  requirements: Ensure the cluster-admin role is only used when required.
+element5:
+  name: General Namespace Policies
+  requirements: Minimize access to secrets in transit.
+element6:
+  name: General Namespace Policies
+  requirements: Ensure the Kubelet config file has an entry for authentication.
+element7:
+  name: General Namespace Policies
+  requirements: Check for an 'automountServiceAccountToken' parameter setting.
+element8:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'user' service account setting.
+element9:
+  name: General Namespace Policies
+  requirements: Check for and disable the 'service account token creation' setting.
+element1: Kubernetes Security Configuration
+element10: General Namespace Policies
+element100: General Namespace Policies
+element11: Secrets Management
+element12: General Namespace Policies
+element13: Secrets Management
+element14: General Namespace Policies
+element15: General Namespace Policies
+element16: General Namespace Policies
+element17: General Namespace Policies
+element18: General Namespace Policies
+element19: General Namespace Policies
+element2: CNI Plugin and Network Policies
+element20: General Namespace Policies
+element21: General Namespace Policies
+element22: General Namespace Policies
+element23: General Namespace Policies
+element24: General Namespace Policies
+element25: General Namespace Policies
+element26: General Namespace Policies
+element27: General Namespace Policies
+element28: General Namespace Policies
+element29: General Namespace Policies
+element3: Secrets Management
+element30: General Namespace Policies
+element31: General Namespace Policies
+element32: General Namespace Policies
+element33: General Namespace Policies
+element34: General Namespace Policies
+element35: General Namespace Policies
+element36: General Namespace Policies
+element37: General Namespace Policies
+element38: General Namespace Policies
+element39: General Namespace Policies
+element4: General Namespace Policies
+element40: General Namespace Policies
+element41: General Namespace Policies
+element42: General Namespace Policies
+element43: General Namespace Policies
+element44: General Namespace Policies
+element45: General Namespace Policies
+element46: General Namespace Policies
+element47: General Namespace Policies
+element48: General Namespace Policies
+element49: General Namespace Policies
+element5: Secrets Management
+element50: General Namespace Policies
+element51: General Namespace Policies
+element52: General Namespace Policies
+element53: General Namespace Policies
+element54: General Namespace Policies
+element55: General Namespace Policies
+element56: General Namespace Policies
+element57: General Namespace Policies
+element58: General Namespace Policies
+element59: General Namespace Policies
+element6: General Namespace Policies
+element60: General Namespace Policies
+element61: General Namespace Policies
+element62: General Namespace Policies
+element63: General Namespace Policies
+element64: General Namespace Policies
+element65: General Namespace Policies
+element66: General Namespace Policies
+element67: General Namespace Policies
+element68: General Namespace Policies
+element69: General Namespace Policies
+element7: Secrets Management
+element70: General Namespace Policies
+element71: General Namespace Policies
+element72: General Namespace Policies
+element73: General Namespace Policies
+element74: General Namespace Policies
+element75: General Namespace Policies
+element76: General Namespace Policies
+element77: General Namespace Policies
+element78: General Namespace Policies
+element79: General Namespace Policies
+element8: General Namespace Policies
+element80: General Namespace Policies
+element81: General Namespace Policies
+element82: General Namespace Policies
+element83: General Namespace Policies
+element84: General Namespace Policies
+element85: General Namespace Policies
+element86: General Namespace Policies
+element87: General Namespace Policies
+element88: General Namespace Policies
+element89: General Namespace Policies
+element9: Secrets Management
+element90: General Namespace Policies
+element91: General Namespace Policies
+element92: General Namespace Policies
+element93: General Namespace Policies
+element94: General Namespace Policies
+element95: General Namespace Policies
+element96: General Namespace Policies
+element97: General Namespace Policies
+element98: General Namespace Policies
+element99: General Namespace Policies
+element1:
+  name: Cluster Name
+  requirements: Ensure that the EKS cluster endpoint is private.  Configure the cluster
+    endpoint to be a private IP address.  Ensure that the cluster endpoint is only
+    accessible through the EKS control plane.
+element10:
+  name: EKS Custom Domains
+  requirements: Configure the EKS cluster to use a custom domain.  Verify that the
+    custom domain is properly associated with the EKS cluster and is accessible.  Check
+    the EKS control plane configuration and domain assignment.
+element11:
+  name: EKS Service Quotas
+  requirements: The EKS Service Quotas are a core security component that controls
+    the resources available in your EKS cluster. Ensure the quotas are appropriately
+    set up to prevent abuse.
+element12:
+  name: EKS EKS CLI
+  requirements: The EKS CLI is used to manage your EKS cluster. Ensure it is installed
+    and working correctly.  Verify that you have access to the EKS CLI.
+element13:
+  name: EKS Instance Types
+  requirements: Ensure that the chosen EKS instance type is appropriate for your workload.
+    Validate the instance type based on the expected resource usage.
+element14:
+  name: EKS EKS CLI
+  requirements: The EKS CLI is used to manage your EKS cluster. Ensure it is installed
+    and working correctly.  Verify that you have access to the EKS CLI.
+element15:
+  name: EKS Cluster Network Policy
+  requirements: The cluster network policy should be configured correctly to allow
+    all necessary network traffic between the cluster nodes. Verify the network policies
+    are set correctly.
+element2:
+  name: Region Code
+  requirements: The Region Code should be an AWS region that supports EKS.  Verify
+    that the Region Code is valid and configured correctly within the EKS cluster.
+element3:
+  name: AWS EKS Describe-Cluster
+  requirements: Check the AWS EKS Describe-Cluster command to ensure the EKS cluster
+    has been created and its configuration is valid.  Verify the cluster endpoint
+    is private, and the cluster is configured correctly.
+element4:
+  name: EKS Cluster Endpoint
+  requirements: The EKS cluster endpoint must be configured as a private IP address.
+    The EKS cluster endpoint must be configured to only allow access from the EKS
+    control plane.
+element5:
+  name: EKS Service Quotas
+  requirements: The EKS Service Quotas are a key resource for securing your cluster.
+    Ensure that your quotas are appropriately set up, allowing you to prevent your
+    cluster from exceeding the allocated resource limits.
+element6:
+  name: EKS Network Policies
+  requirements: Network Policies should be applied to the EKS cluster to allow traffic
+    between pods within the cluster.  Ensure that these Network Policies are properly
+    configured.  Verify that the EKS control plane is configured for proper network
+    access.
+element7:
+  name: EKS IAM Role
+  requirements: The EKS cluster role should grant the necessary permissions to all
+    users and applications within the cluster.  Ensure that the EKS cluster role has
+    the required permissions to access the Kubernetes API server and other resources.
+element8:
+  name: EKS Cluster Endpoint Documentation
+  requirements: Refer to the EKS Cluster Endpoint documentation for detailed information
+    on how to configure the cluster endpoint correctly.  Verify the configuration
+    of the cluster endpoint to ensure that it is correctly configured and allows access
+    to the cluster.
+element9:
+  name: EKS EKS Networking Policy
+  requirements: Enabling EKS Networking Policy is required to configure and enforce
+    Network Policies. The policy should be configured to allow pods to communicate
+    with each other.

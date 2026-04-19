@@ -1,0 +1,247 @@
+CIS_Benchmarks:
+  v1.7.0:
+    Apply_Correct_Version_of_Benchmark: 'Apply the Correct Version of a Benchmark  '
+    Assessment_Status: 'Assessment Status  '
+    Audit_Procedure: 'Audit Procedure  '
+    Automated: 'Automated  '
+    CIS_Controls: 'CIS Controls  '
+    Consensus_Guidance: 'Consensus Guidance  '
+    Controls: 'Controls  '
+    Default_Value: 'Default Value  '
+    Description: 'Description  '
+    Exceptions: 'Exceptions  '
+    IG: 'IG  '
+    Impact_Statement: 'Impact Statement  '
+    Important_Usage_Information: 'Important Usage Information  '
+    Intended_Audience: 'Intended Audience  '
+    Key_Stakeholders: 'Key Stakeholders  '
+    Manual: 'Manual  '
+    Overview: 'Overview  '
+    Page_22: Page 22
+    Page_23: Page 23
+    Page_24: Page 24
+    Profile: 'Profile  '
+    Rationale_Statement: 'Rationale Statement  '
+    Recommendation_Definitions: 'Recommendation Definitions  '
+    References: 'References  '
+    Remediation: 'Remediation  '
+    Remediation_Procedure: 'Remediation Procedure  '
+    Summary: 'Summary  '
+    Table_of_Contents: 'Page 2  '
+    Target_Technology_Details: 'Target Technology Details  '
+    Terms_of_Use: "Please see the below link for our current terms of use:\nhttps://www.cisecurity.org/cis-securesuite/cis-securesuite-membership-terms-of-use\n\
+      \nFor information on referencing and/or/citing CIS Benchmarks in third-party\
+      \ documentation (including using portions of Benchmark Recommendations)\n(including\
+      \ using segments of the benchmark recommendations)\nplease contact CIS Legal\
+      \ at support@cisecurity.org.  \n\nNOTE:\nIt is NEVER acceptable to host a CIS\
+      \ Benchmark in any format (PDF, etc.) on a third-party\nsite.  Page 2  "
+    Title: 'Title  '
+    Typographical_Conventions: 'Typographical Conventions  '
+    Version_Control: 'Version Control  '
+    v8: 'v8  '
+element1:
+  name: Internal Only - General
+  requirements:
+  - 'CIS Controls: Controls'
+  - Version Control IG 1 IG 2 IG 3
+  - v8
+  - 4.8 Uninstall or Disable Unnecessary Services on Enterprise Assets and Software
+  - 4.8 Uninstall or Disable Unnecessary Services on Enterprise Assets and Software
+element10:
+  name: General Namespace Policies
+  requirements:
+  - 4.11 Ensure that the --make-iptables-util-chains argument is set to true (Automated)
+    - Ensures the iptables configuration.
+element11:
+  name: General Namespace Policies
+  requirements:
+  - 4.12  Ensure that service account tokens are only mounted where necessary (Automated)
+    - Prevents unauthorized service accounts.
+element2:
+  name: CNI Plugin and Network Policies
+  requirements:
+  - 4.3 (Manual, L1) The CNI plugin must support network policies - confirm the deployed
+    CNI (e.g., Calico, Cilium, or VPC CNI with network policy support) enforces network
+    policies resources.
+  - 4.3 (Automated, L1) The Kubelet authentication argument is not set to AlwaysAllow
+    (Automated).
+  - 4.3 (Automated, L1) The --authorization-mode argument is not set to WebHook (Automated).
+  - 4.3 (Automated, L1) A Client CA File is Configured (Automated).
+  - 4.3 (Automated, L1) A Pod Security Standards (PSS) is Configured (Automated).
+  - 4.3 (Automated, L1)  A Service Account is Configured (Automated).
+element3:
+  name: Secrets Management
+  requirements:
+  - 4.4 (Automated, L1) Secrets must be mounted as files rather than exposed as environment
+    variables - use volume mounts with secretKeyRef, not env.valueFrom.
+  - 4.4 (Manual, L2) Consider using an external secret store (e.g., AWS Secrets Manager,
+    HashiCorp Vault) instead of native secrets for enhanced protection.
+element4:
+  name: General Namespace Policies
+  requirements:
+  - 4.5 (Manual, L1) Administrative boundaries must be created between resources using
+    namespaces - group workloads by team, environment, or sensitivity level.
+  - 4.5 (Automated, L2) The default namespace must not be used for workload deployment
+    - all applications must reside in explicitly named namespaces.
+element5:
+  name: General Namespace Policies
+  requirements:
+  - 4.6 Ensure that the --read-only-port is disabled (Automated) -  prevents unauthorized
+    access to the cluster.
+  - 4.6 Ensure that the --read-only-port is disabled (Automated) - prevents unauthorized
+    access to the cluster.
+element6:
+  name: General Namespace Policies
+  requirements:
+  - 4.7 Ensure that the --streaming-connection-idle-timeout is disabled (Automated)
+    - prevents excessive events.
+element7:
+  name: General Namespace Policies
+  requirements:
+  - 4.8 Uninstall or Disable Unnecessary Services on Enterprise Assets and Software
+element8:
+  name: General Namespace Policies
+  requirements:
+  - 4.9  RotateKubeletServerCertificate Argument (Automated) - ensure proper certificate
+    rotation for the API server.
+element9:
+  name: General Namespace Policies
+  requirements:
+  - 4.10 Ensure that the --eventRecordQPS argument is set to 0 or a level which ensures
+    appropriate event capture (Automated) - Prevents excessive events.
+element1:
+  name: General Policies
+  requirements:
+  - Create administrative boundaries between resources using namespaces (Manual)
+  - Ensure the Use of Dedicated Administrative Accounts to the Cluster (Manual)
+  - Minimize Cluster Access to Read-Only for Amazon EKS (Manual)
+element10:
+  name: General Namespace Policies
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Automated)
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Manual)
+element11:
+  name: General Namespace Policies
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Automated)
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Manual)
+element2:
+  name: CNI Plugin and Network Policies
+  requirements:
+  - Use network policies to isolate traffic in the cluster (Automated)
+  - Use network policies to restrict administrator privileges to dedicated administrator
+    accounts on enterprise assets (Manual)
+element3:
+  name: Secrets Management
+  requirements:
+  - Use dedicated administrative accounts on enterprise assets (Manual)
+  - Ensure that all users with administrative account access use a dedicated or secondary
+    account for elevated activities (Manual)
+element4:
+  name: General Namespace Policies
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Automated)
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Manual)
+element5:
+  name: General Namespace Policies
+  requirements:
+  - Create administrative boundaries between resources using namespaces (Manual)
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Automated)
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Manual)
+element6:
+  name: Secrets Management
+  requirements:
+  - Use dedicated administrative accounts on enterprise assets (Manual)
+  - Employ a dedicated service account to access cloud storage via the AWS EKS CLI
+    (Manual)
+element7:
+  name: General Namespace Policies
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Automated)
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Manual)
+element8:
+  name: General Namespace Policies
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Automated)
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Manual)
+element9:
+  name: General Namespace Policies
+  requirements:
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Automated)
+  - Minimize the admission of containers wishing to share the host process ID namespace
+    (Manual)
+element1:
+  name: EncryptionConfig
+  requirements:
+  - 3.2.1 (Automated, L1) The CNI plugin must support network policies - confirm the
+    deployed CNI (e.g., Calico, Cilium, or VPC CNI with network policy support) enforces
+    NetworkPolicy resources.
+  - 3.2.2 (Automated, L1) All Namespaces must have Network Policies defined - create
+    default-deny ingress/egress NetworkPolicy objects in every namespace.
+  - 3.2.3 (Automated, L1) A Client CA File must be Configured (to ensure sensitive
+    data is encrypted at rest)
+  - 3.2.4 (Automated, L1) --anonymous-auth=false
+element10:
+  name: General Namespace Policies
+  requirements:
+  - 4.5.9 (Automated, L1) Ensure that default service accounts are not actively used
+    - ensure that the network policy is enabled and set as appropriate
+element2:
+  name: Secrets Management
+  requirements:
+  - 4.4 Implement and Manage a Firewall on Servers - Ensure that the Network Policy
+    is enabled and set as appropriate
+  - 4.4.2 (Manual, L2) Consider using an external secret store (e.g., AWS Secrets
+    Manager, HashiCorp Vault) instead of native secrets for enhanced protection.
+  - 4.4.3 (Automated, L1) Secrets must be mounted as files rather than exposed as
+    environment variables
+element3:
+  name: General Namespace Policies
+  requirements:
+  - 4.5.1 (Automated, L1) Administrative boundaries must be created between resources
+    using namespaces - group workloads by team, environment, or sensitivity level.
+  - 4.5.2 (Automated, L2) The default namespace should not be used - all application
+    resources must reside in explicitly named namespaces.
+element4:
+  name: General Namespace Policies
+  requirements:
+  - 4.5.3 (Automated, L1) Ensure that the cluster-admin role is only used where required
+    - Ensure that the network policy is enabled and set as appropriate
+element5:
+  name: General Namespace Policies
+  requirements:
+  - 4.5.4 (Automated, L1) Encrypt traffic to HTTPS load balancers with TLS certificates
+    - Ensure that the network policy is enabled and set as appropriate
+element6:
+  name: General Namespace Policies
+  requirements:
+  - 4.5.5 (Automated, L1) Ensure that default service accounts are not actively used
+    - ensure that the network policy is enabled and set as appropriate
+element7:
+  name: General Namespace Policies
+  requirements:
+  - 4.5.6 (Automated, L1) Ensure that Service Account Tokens are only mounted as files
+    rather than exposed as environment variables
+element8:
+  name: General Namespace Policies
+  requirements:
+  - 4.5.7 (Automated, L1) Encrypt traffic to HTTPS load balancers with TLS certificates
+    - Ensure that the network policy is enabled and set as appropriate
+element9:
+  name: General Namespace Policies
+  requirements:
+  - 4.5.8 (Automated, L1) Encrypt traffic to HTTPS load balancers with TLS certificates
+    - Ensure that the network policy is enabled and set as appropriate

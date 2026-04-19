@@ -1,281 +1,261 @@
-appendix:
-- Summary Table
-- Terms of Use
-- Intended Audience
-- Consensus Guidance
-- Typographical Conventions
-- Recommendation Definitions
-- Rationale Statement
-- Impact Statement
-- Audit Procedure
-- Remediation Procedure
-- Default Value
-- References
-- "CIS Controls\xAE (CIS Controls\xAE)"
-- Additional Information
-- Profile Definitions
-- Acknowledgement
-- Recommendations
-- Remediation Procedure
-- References
-- "CIS Controls\xAE (CIS Controls\xAE)"
-- Additional Information
-- Profile Definitions
-- Acknowledgement
-- Page 26
-- Page 27
-- Page 28
-- Page 29
-- Page 30
-- Page 31
-- Page 32
-- Page 33
-- Page 34
-- Page 35
-- Page 36
-- Page 37
-- Page 38
-- Page 39
-- Page 40
-- Page 41
-- Page 42
-- Page 43
-page_number: 1
-title: CIS Amazon Elastic Kubernetes Service (EKS) Benchmark v1.2.0 - 11-23-2022
 element1:
-  name: Kubernetes Security Configurations
+  name: CIS Amazon Elastic Kubernetes Service (EKS) Benchmark v1.2.0
   requirements:
-  - Systemctl daemon-reload
-  - systemctl restart kubelet
-  - 'systemctl status kubelet -l Default Value: See the Amazon EKS documentation for
-    the default value.'
-  - kubectl proxy --port=8001 & export HOSTNAME_PORT=localhost:8001 export NODE_NAME=ip-192.168.31.226.ec2.internal
-  - kubectl proxy --port=8001 & export HOSTNAME_PORT=localhost:8001 export NODE_NAME=ip-192.168.31.226.ec2.internal
-  - kubectl get psp -o json
-  - kubectl get psp <name> -o=jsonpath='{.spec.privileged}'
-  - kubectl get psp -o=jsonpath='{.spec.hostPID}'
-  - kubectl get psp -o=jsonpath='{.spec.hostIPC}'
-  - kubectl get psp -o=jsonpath='{.spec.hostIPC}'
-  - kubectl get psp -o=jsonpath='{.spec.hostPID}'
-  - kubectl get psp -o=jsonpath='{.spec.hostIPC}'
-  - kubectl get psp -o=jsonpath='{.spec.hostIPC}'
+  - '3.2.1 (Automated, L1) Anonymous authentication must be disabled - set authentication.anonymous.enabled:
+    false in the kubelet config file or pass'
+  - 3.2.2 (Automated, L1) --authorization-mode must not be set to AlwaysAllow - verify
+    the argument is absent or set to a restrictive mode (e.g., Webhook).
+  - 3.2.3 (Automated, L1) A Client CA File must be Configured - ensure --client-ca-file
+    is set to a valid CA bundle in the kubelet config.
+  - 3.2.4 (Automated, L1) --read-only-port must be disabled (set to 0) to prevent
+    unauthenticated access to the kubelet metrics.
+  - 3.2.5 (Automated, L1) --streaming-connection-idle-timeout must not be 0 - a non-zero
+    timeout prevents indefinitely open streaming connections.
+  - 3.2.6 (Automated, L1) --make-iptables-util-chains must be set to true to ensure
+    kubelet manages iptable rules correctly.
+  - 3.2.7 (Automated, L1) --eventRecordQPS must be set to 0 or an appropriate value
+    that ensures adequate event capture without overloading the API server.
+  - 3.2.8 (Automated, L1) --rotate-certificates must not be present or must be set
+    to true to enable automatic client certificate rotation.
+  - 3.2.9 (Automated, L1) RotateKubeletServerCertificate must be set to true to enable
+    automatic server certificate rotation.
+  - 3.3 Container Optimized OS
 element10:
-  name: Systemctl Daemon-reload
+  name: CNI Plugin and Network Policies
   requirements:
-  - Systemctl daemon-reload
+  - 6.1 - Ensure that the CNI plugin is set up to allow the application to be accessed
+  - 6.2 - Ensure that all network policies are set up and not overridden
 element11:
-  name: Systemctl Restart
+  name: Secrets Management
   requirements:
-  - Systemctl restart
+  - 7.1 -  Verify that secrets have been configured as files
+  - 7.2 - The --secret-key is set.
 element12:
-  name: kubectl proxy
+  name: General Namespace Policies
   requirements:
-  - kubectl proxy
+  - 8.1 - Check the namespace configuration against the defined policies.
 element13:
-  name: EKS Documentation
+  name: General Policies
   requirements:
-  - EKS documentation
+  - 9.1 -  Verify the security settings in the control plane.
 element14:
-  name: AWS EKS Best Practices
+  name: Manage Kubernetes Service
   requirements:
-  - AWS EKS best practices
+  - 10.1 -  Perform all of the required steps to verify the service and its configuration
+    is correct.
 element15:
-  name: Pod Security Policy (PSP)
+  name: Kubernetes Service Configuration
   requirements:
-  - Pod Security Policy
+  - 11.1 -  Log the services, including the ability to verify the logs
+element16:
+  name: Security Management
+  requirements:
+  - 12.1 -  Verify that the Kubelet service is running
 element2:
-  name: Pod Security Policies (PSPs)
+  name: CNI Plugin and Network Policies
   requirements:
-  - Minimize admission of containers wishing to share the host process ID namespace
-  - Restrict administrator privileges to dedicated administrator accounts
+  - 4.3.1 (Manual, L1) The CNI plugin must support network policies - confirm the
+    deployed CNI (e.g., Calico, Cilium, or VPC CNI with network policy support) enforces
+    network policies.
+  - 4.3.2 (Automated, L1) All Namespaces must have Network Policies defined - create
+    default-deny ingress/egress NetworkPolicy objects in every namespace.
 element3:
-  name: Container Optimized OS
+  name: Secrets Management
+  requirements:
+  - 3.3.1 Secrets must be mounted as files rather than as environment variables -
+    use volume mounts with secretKeyRef, not env.valueFrom.
+  - 3.3.2 Secrets must be configured as files - The `--secret-config` argument and
+    --secret-value must be set.
+  - 3.3.3 Ensure that a Client CA File is Configured - Confirm that a client CA file
+    exists to allow clients to verify that the secrets are coming from a trusted source.
+  - 3.3.4 Ensure that a Secret key is configured - the secret key must be set to a
+    specific value.
+  - 3.3.5 Ensure that the --secret-value must be set to a specific value.
+element4:
+  name: General Namespace Policies
+  requirements:
+  - 4.4.1 (Manual, L1) Administrative boundaries must be created between resources
+    using namespaces - group workloads by team, environment, or sensitivity level.
+  - 4.4.2 (Manual, L2) Pod Security Policies - Minimize the access to the service
+    account via security groups.
+element5:
+  name: Managed Services
+  requirements:
+  - 5.1 - Establish Secure Configurations - Ensure that security configurations are
+    done as a part of the established security goals and needs.
+  - 5.2 - Maintain Secure Configurations - Maintain secure configurations and ensure
+    that it is not possible for the service to be compromised.
+  - 5.3 - Ensure Only Approved Ports, Protocols and Services Are Running - ensure
+    that only network ports, protocols and services listening on a system with validated
+    business needs.
+element6:
+  name: General Policies
+  requirements:
+  - 5.4 -  Ensure that the service is configured based on the correct environment.
+    As this configuration may not be applicable to all environment or users.  Ensure
+    it is possible to verify the configuration. It may be possible to verify the configuration
+    with the current environment.
+element7:
+  name: Configuration of Active Kubernetes Service
+  requirements:
+  - 5.5 -  The Kubernetes Service Must Be Configured for all active services and not
+    have any configuration at all.
+element8:
+  name: Security Management
+  requirements:
+  - 5.6 -  Automated Configuration Methods
+  - 5.7 - Manual Configuration Methods
+  - 5.8 - Ensure that no configuration methods are being used in the current environment.
+element9:
+  name: Kubelet Security Configuration
+  requirements:
+  - 5.9 - Ensure all the Kubelet service is running
+  - 5.10 - Ensure the Kubelet has no security vulnerabilities
+element1:
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
+  requirements:
+  - Restrict Administrator Privileges to Dedicated Administrator Accounts
+  - Restrict Administrator Privileges to Dedicated Administrator Accounts on Enterprise
+    Assets
+  - Restrict Administrator Privileges to Dedicated Administrator Accounts on Enterprise
+    Assets
+  - Restrict Administrator Privileges to Dedicated Administrator Accounts on Enterprise
+    Assets
+  - Minimize Administrator Privileges to Dedicated Administrator Accounts
+  - Minimize Administrator Privileges to Dedicated Administrator Accounts
+  - Minimize Administrator Privileges to Dedicated Administrator Accounts
+element10:
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
+  requirements:
+  - Configure the Cluster Service Account with Storage Object Viewer Role to only
+    allow read-only access
+  - Configure the Cluster Service Account with Storage Object Viewer Role to only
+    allow read-only access
+  - Configure the Cluster Service Account with Storage Object Viewer Role to only
+    allow read-only access
+element2:
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
   requirements:
   - Use standard, industry-recommended hardening configuration templates for application
-    infrastructure components.
-element4:
-  name: RBAC and Service Accounts
-  requirements:
-  - Ensure that the cluster-admin role is only used where required
-  - Restrict administrator privileges to dedicated administrator accounts
-element5:
-  name: Pod Security Policies (PSPs)
-  requirements:
-  - Minimize the admission of containers wishing to share the host process ID namespace
-  - Restrict administrator privileges to dedicated administrator accounts
-element6:
-  name: Secure Configuration Processes
-  requirements:
-  - Establish and maintain a secure configuration process for enterprise assets
-element7:
-  name: Container Image Security
-  requirements:
-  - Minimize the admission of containers wishing to share the host process ID namespace
-element8:
-  name: Kubernetes Control Panel
-  requirements:
-  - Minimize the admission of containers wishing to share the host process ID namespace
-element9:
-  name: Pod Security Policies
-  requirements:
-  - Minimize the admission of containers wishing to share the host process ID namespace
-element1:
-  name: AWS EKS Key Management Service
-  requirements:
-  - Utilize AWS EKS Key Management Service to manage secrets securely.
-  - Implement a robust key rotation strategy.
-  - Regularly review and update access policies.
-  - Leverage AWS KMS for encryption and access control.
-  - Utilize KMS-managed keys for enhanced security.
-element10:
-  name: ECR Registry
-  requirements:
-  - Only use ECR registry.
-  - Utilize ECR security policies.
-element2:
-  name: IAM Roles for Service Accounts
-  requirements:
-  - Use IAM roles to grant permissions to Kubernetes services.
-  - Associate IAM roles with service accounts.
-  - Restrict role bindings to the minimum necessary permissions.
-  - Securely manage service account credentials.
+    infrastructure
+  - Ensure the Use of Dedicated Administrative Accounts
+  - Minimize Administrator Privileges to Dedicated Administrator Accounts
+  - Use standard, industry-recommended hardening configuration templates for application
+    infrastructure
+  - Minimize Administrator Privileges to Dedicated Administrator Accounts
+  - Use standard, industry-recommended hardening configuration templates for application
+    infrastructure
 element3:
-  name: AWS KMS
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
   requirements:
-  - Utilize AWS KMS for encryption and access control.
-  - Manage encryption keys using KMS.
-  - Implement key rotation for KMS keys.
+  - Perform Automated Vulnerability Scans of Internal Enterprise Assets
+  - Perform Automated Vulnerability Scans of Internal Enterprise Assets
+  - Perform Automated Vulnerability Scans of Internal Enterprise Assets
+  - Perform Automated Vulnerability Scans of Internal Enterprise Assets
 element4:
-  name: PodSecurityPolicies
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
   requirements:
-  - Configure PodSecurityPolicies to restrict container privileges.
-  - Enable the default PodSecurityPolicy.
-  - Restrict containers access to other resources.
+  - Perform Automated Vulnerability Scans of External Enterprise Assets
+  - Perform Automated Vulnerability Scans of External Enterprise Assets
 element5:
-  name: Network Policies
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
   requirements:
-  - Implement network policies to control communication between pods.
-  - Follow network policy best practices.
-  - Implement security best practices in network policies.
+  - Implement and Manage Dedicated Administrative Accounts
+  - Implement and Manage Dedicated Administrative Accounts
+  - Implement and Manage Dedicated Administrative Accounts
+  - Implement and Manage Dedicated Administrative Accounts
 element6:
-  name: Least Privilege Principle
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
   requirements:
-  - Apply least privilege principle.
-  - Restrict service account permissions.
+  - Restrict Administrator Privileges to Dedicated Administrator Accounts
+  - Restrict Administrator Privileges to Dedicated Administrator Accounts on Enterprise
+    Assets
+  - Restrict Administrator Privileges to Dedicated Administrator Accounts on Enterprise
+    Assets
 element7:
-  name: IAM Roles
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
   requirements:
-  - Use IAM roles to manage permissions for Kubernetes workers.
-  - Properly configure roles for service accounts.
+  - Minimize Cluster Access to Read-Only for Amazon EKS
+  - Minimize Cluster Access to Read-Only for Amazon EKS
+  - Minimize Cluster Access to Read-Only for Amazon EKS
 element8:
-  name: Automated Patch Management
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
   requirements:
-  - Implement and maintain automated patching processes.
-  - Automated patching to ensure systems are up-to-date.
+  - Perform Automated Vulnerability Scans of Internal Enterprise Assets
+  - Perform Automated Vulnerability Scans of Internal Enterprise Assets
+  - Perform Automated Vulnerability Scans of Internal Enterprise Assets
+  - Perform Automated Vulnerability Scans of Internal Enterprise Assets
 element9:
-  name: Container Image Scanning
+  name: 'CIS Control: Controls Version Control IG 1 IG 2 IG 3'
   requirements:
-  - Implement comprehensive container image scanning protocols.
-  - Implement image scanning to identify vulnerabilities.
-  - Implement image scanning to ensure that images are compliant with security standards.
-CIS Controls:
-  Controls:
-  - Page 133
-  - Page 134
-  - Page 135
-  - Page 136
-  - Page 137
-  - Page 138
-  - Page 139
-  - Page 140
-  - Page 141
-  - Page 142
-  - Page 143
-  - Page 144
-  - Page 145
-  - Page 146
-  - Page 147
-  - Page 148
-  - Page 149
-  - Page 150
-  - Page 151
-  - Page 152
-  - Page 153
-  - Page 154
-  - Page 155
-  - Page 156
-  - Page 157
-  - Page 158
-  - Page 159
-  - Page 160
-  - Page 161
-  - Page 162
-  - Page 163
-  - Page 164
-  - Page 165
-  - Page 166
-  - Page 167
-  - Page 168
-  - Page 169
-  - Page 170
-  - Page 171
-  - Page 172
-  - Page 173
-  - Page 174
-  - Page 175
-  - Page 176
-  - Page 177
-  - Page 178
-  - Page 179
-  - Page 180
-Controls:
-  Controls Map:
-  - 1.2.0
-  Controls Version:
-  - 11/14/2022
-  - 1.2.0
-  Pages:
-  - Page 133
-  - Page 134
-  - Page 135
-  - Page 136
-  - Page 137
-  - Page 138
-  - Page 139
-  - Page 140
-  - Page 141
-  - Page 142
-  - Page 143
-  - Page 144
-  - Page 145
-  - Page 146
-  - Page 147
-  - Page 148
-  - Page 149
-  - Page 150
-  - Page 151
-  - Page 152
-  - Page 153
-  - Page 154
-  - Page 155
-  - Page 156
-  - Page 157
-  - Page 175
-  - Page 176
-  - Page 177
-  - Page 178
-  - Page 179
-  - Page 180
-Page 138: By enabling the 'Client CA File' option during cluster creation, the client
-  certificates are integrated with the system, providing enhanced security.
-References:
-- 1. https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
-- 2. https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
-- 3. https://docs.aws.amazon.com/eks/latest/userguide/data-protection.html
-- 4. https://docs.aws.amazon.com/eks/latest/userguide/ef.html
-- 5. https://docs.aws.amazon.com/eks/latest/userguide/k8s-configuration.html
-- 6. https://docs.aws.amazon.com/eks/latest/userguide/kubeconfig.html
-Remediation:
-  Page 137: By enabling the 'Encrypt Sensitive Data at Rest' option during cluster
-    creation, the Kubernetes secrets are protected by a Customer Master Key (CMK)
-    managed by AWS KMS.
+  - Perform Automated Vulnerability Scans of External Enterprise Assets
+  - Perform Automated Vulnerability Scans of External Enterprise Assets
+authentication_and_authorization:
+- configuration_name: Manage Kubernetes RBAC users with AWS IAM Authenticator for
+    Kubernetes
+  description: Manage Kubernetes RBAC users with AWS IAM Authenticator for Kubernetes.
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+- configuration_name: Minimize user access to secrets
+  description: Minimize user access to secrets.
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/data-protection.html
+- configuration_name: Minimize wildcard use in Roles and ClusterRoles
+  description: Minimize wildcard use in Roles and ClusterRoles.
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+cluster_networking:
+- configuration_name: Restrict Access to the Control Plane Endpoint
+  description: Restrict access to the control plane endpoint to only authorized users
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+- configuration_name: Ensure Clusters are Created with Private Endpoint Enabled and
+    Public Access Disabled
+  description: Ensure Clusters are created with Private Endpoint enabled and Public
+    Access disabled
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+controls:
+- control_name: Encrypt Sensitive Data at Rest
+  description: Encrypt sensitive data using AWS KMS Customer Managed Keys (CMKs)
+  references:
+  - https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/data-protection.html
+- control_name: Ensure Only Approved Ports
+  description: Restrict access to the Kubernetes API to only approved ports.
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+- control_name: Minimize User Access to Amazon ECR
+  description: Limit user access to Amazon ECR.
+  references:
+  - https://docs.aws.amazon.com/ecr/latest/userguide/amazon-ecr-user-access.html
+- control_name: Restrict Access to the Control Plane Endpoint
+  description: Restrict access to the control plane endpoint to only authorized users
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+general_configuration:
+- configuration_name: Encrypt sensitive data at rest
+  description: Encrypt sensitive data using AWS KMS Customer Managed Keys (CMKs).
+  references:
+  - https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/data-protection.html
+- configuration_name: Ensure Only Approved Ports
+  description: Restrict access to the Kubernetes API to only approved ports.
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+network_policies:
+- description: Implement Network Policies to restrict network traffic.
+  network_policy_name: Implement Network Policy
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+- description: Restrict access to the control plane endpoint.
+  network_policy_name: Restrict Access to the Control Plane Endpoint
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+security_context:
+- description: Minimize user access to Amazon ECR
+  references:
+  - https://docs.aws.amazon.com/ecr/latest/userguide/amazon-ecr-user-access.html
+  security_context_name: Minimize user access to Amazon ECR
+- description: Restrict access to the control plane endpoint.
+  references:
+  - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
+  security_context_name: Restrict Access to the Control Plane Endpoint
