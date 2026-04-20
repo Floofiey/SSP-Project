@@ -1,0 +1,10 @@
+CIS Control: Controls Version Control IG 1 IG 2 IG 3
+Configuration of Active Kubernetes Service
+Manage Kubernetes Service
+Kubernetes Service Configuration
+Security Management
+CIS Amazon Elastic Kubernetes Service (EKS) Benchmark v1.2.0
+EncryptionConfig
+Kubelet Security Configuration
+Internal Only - General
+Managed Services

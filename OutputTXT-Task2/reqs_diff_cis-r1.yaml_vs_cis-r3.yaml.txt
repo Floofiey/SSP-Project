@@ -1,0 +1,29 @@
+Kubelet Security Configuration,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,NA
+CNI Plugin and Network Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,4.3.1 (Manual, L1) The CNI plugin must support network policies - confirm the deployed CNI (e.g., Calico, Cilium, or VPC CNI with network policy support) enforces network policies.
+CNI Plugin and Network Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,4.3.2 (Automated, L1) All Namespaces must have Network Policies defined - create default-deny ingress/egress NetworkPolicy objects in every namespace.
+CNI Plugin and Network Policies,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,Use network policies to restrict administrator privileges to dedicated administrator accounts on enterprise assets (Manual)
+CNI Plugin and Network Policies,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,Use network policies to isolate traffic in the cluster (Automated)
+CIS Control: Controls Version Control IG 1 IG 2 IG 3,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,NA
+EncryptionConfig,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,NA
+Configuration of Active Kubernetes Service,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,NA
+Manage Kubernetes Service,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,NA
+Secrets Management,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,3.3.2 Secrets must be configured as files - The `--secret-config` argument and --secret-value must be set.
+Secrets Management,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,3.3.4 Ensure that a Secret key is configured - the secret key must be set to a specific value.
+Secrets Management,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,3.3.1 Secrets must be mounted as files rather than as environment variables - use volume mounts with secretKeyRef, not env.valueFrom.
+Secrets Management,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,3.3.5 Ensure that the --secret-value must be set to a specific value.
+Secrets Management,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,3.3.3 Ensure that a Client CA File is Configured - Confirm that a client CA file exists to allow clients to verify that the secrets are coming from a trusted source.
+Secrets Management,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,4.4.2 (Manual, L2) Consider using an external secret store (e.g., AWS Secrets Manager, HashiCorp Vault) instead of native secrets for enhanced protection.
+Secrets Management,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,4.4 Implement and Manage a Firewall on Servers - Ensure that the Network Policy is enabled and set as appropriate
+Secrets Management,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,4.4.3 (Automated, L1) Secrets must be mounted as files rather than exposed as environment variables
+Internal Only - General,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,NA
+Kubernetes Service Configuration,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,NA
+General Namespace Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,4.4.1 (Manual, L1) Administrative boundaries must be created between resources using namespaces - group workloads by team, environment, or sensitivity level.
+General Namespace Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,4.4.2 (Manual, L2) Pod Security Policies - Minimize the access to the service account via security groups.
+General Namespace Policies,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,4.5.8 (Automated, L1) Encrypt traffic to HTTPS load balancers with TLS certificates - Ensure that the network policy is enabled and set as appropriate
+Security Management,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,NA
+Managed Services,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,NA
+CIS Amazon Elastic Kubernetes Service (EKS) Benchmark v1.2.0,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,NA
+General Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r1.yaml,5.4 -  Ensure that the service is configured based on the correct environment. As this configuration may not be applicable to all environment or users.  Ensure it is possible to verify the configuration. It may be possible to verify the configuration with the current environment.
+General Policies,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,Ensure the Use of Dedicated Administrative Accounts to the Cluster (Manual)
+General Policies,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,Minimize Cluster Access to Read-Only for Amazon EKS (Manual)
+General Policies,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r3.yaml,Create administrative boundaries between resources using namespaces (Manual)

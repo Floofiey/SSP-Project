@@ -1,0 +1,24 @@
+Apply the Correct Version of a Benchmark,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Profile,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Secrets Management,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,Ensure that the --read-only-port argument is enabled. Audit Method 1: Check the value of the --read-only-port parameter.
+Secrets Management,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r3.yaml,4.4 Implement and Manage a Firewall on Servers - Ensure that the Network Policy is enabled and set as appropriate
+Secrets Management,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r3.yaml,4.4.3 (Automated, L1) Secrets must be mounted as files rather than exposed as environment variables
+Secrets Management,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r3.yaml,4.4.2 (Manual, L2) Consider using an external secret store (e.g., AWS Secrets Manager, HashiCorp Vault) instead of native secrets for enhanced protection.
+Key Stakeholders,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Remediation,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+CNI Plugin and Network Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,Verify that the CNI plugin must support network policies, and ensure that all Namespaces have Network Policies defined, and verify the Authorization Mode is set to Webhook.
+CNI Plugin and Network Policies,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r3.yaml,Use network policies to restrict administrator privileges to dedicated administrator accounts on enterprise assets (Manual)
+CNI Plugin and Network Policies,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r3.yaml,Use network policies to isolate traffic in the cluster (Automated)
+CIS Controls®,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+General Policies,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r3.yaml,NA
+Internal Only - General,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r3.yaml,NA
+General Namespace Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,Audit Method 1: Verify that the --read-only-port parameter is not set to 0. Audit Method 2: Verify that the --read-only-port parameter is set to 0
+General Namespace Policies,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r3.yaml,4.5.8 (Automated, L1) Encrypt traffic to HTTPS load balancers with TLS certificates - Ensure that the network policy is enabled and set as appropriate
+Kubernetes Security Configuration,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Exceptions,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Summary,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+CIS Critical Security Controls®,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Terms of Use,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+EncryptionConfig,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r3.yaml,NA
+Table of Contents,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Recommendations,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r2(2).yaml,NA

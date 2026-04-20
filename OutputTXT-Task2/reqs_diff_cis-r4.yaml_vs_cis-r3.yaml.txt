@@ -1,0 +1,26 @@
+Cluster Name,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+Internal Only - General,ABSENT-IN-cis-r4.yaml,PRESENT-IN-cis-r3.yaml,NA
+Region Code,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+CNI Plugin and Network Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,Use network policies, ensure only approved ports, protocols, and services are running.
+CNI Plugin and Network Policies,ABSENT-IN-cis-r4.yaml,PRESENT-IN-cis-r3.yaml,Use network policies to isolate traffic in the cluster (Automated)
+CNI Plugin and Network Policies,ABSENT-IN-cis-r4.yaml,PRESENT-IN-cis-r3.yaml,Use network policies to restrict administrator privileges to dedicated administrator accounts on enterprise assets (Manual)
+General Namespace Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,Check for and disable the 'service account token creation' setting.
+General Namespace Policies,ABSENT-IN-cis-r4.yaml,PRESENT-IN-cis-r3.yaml,4.5.8 (Automated, L1) Encrypt traffic to HTTPS load balancers with TLS certificates - Ensure that the network policy is enabled and set as appropriate
+EKS Cluster Endpoint Documentation,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+EKS IAM Role,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+General Policies,ABSENT-IN-cis-r4.yaml,PRESENT-IN-cis-r3.yaml,NA
+Client CA File,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+EKS Instance Types,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+EKS Service Quotas,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+EKS EKS Networking Policy,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+EKS Custom Domains,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+AWS EKS Describe-Cluster,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+EKS EKS CLI,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+EKS Cluster Network Policy,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+EKS Network Policies,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA
+EncryptionConfig,ABSENT-IN-cis-r4.yaml,PRESENT-IN-cis-r3.yaml,NA
+Secrets Management,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,Secure all sensitive information in transit (TLS, OpenSSH).
+Secrets Management,ABSENT-IN-cis-r4.yaml,PRESENT-IN-cis-r3.yaml,4.4 Implement and Manage a Firewall on Servers - Ensure that the Network Policy is enabled and set as appropriate
+Secrets Management,ABSENT-IN-cis-r4.yaml,PRESENT-IN-cis-r3.yaml,4.4.3 (Automated, L1) Secrets must be mounted as files rather than exposed as environment variables
+Secrets Management,ABSENT-IN-cis-r4.yaml,PRESENT-IN-cis-r3.yaml,4.4.2 (Manual, L2) Consider using an external secret store (e.g., AWS Secrets Manager, HashiCorp Vault) instead of native secrets for enhanced protection.
+EKS Cluster Endpoint,ABSENT-IN-cis-r3.yaml,PRESENT-IN-cis-r4.yaml,NA

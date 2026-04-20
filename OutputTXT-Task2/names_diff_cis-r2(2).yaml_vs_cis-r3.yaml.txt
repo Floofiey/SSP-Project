@@ -1,0 +1,15 @@
+Apply the Correct Version of a Benchmark
+Profile
+Key Stakeholders
+Remediation
+CIS Controls®
+General Policies
+Internal Only - General
+Kubernetes Security Configuration
+Exceptions
+Summary
+CIS Critical Security Controls®
+Terms of Use
+EncryptionConfig
+Table of Contents
+Recommendations

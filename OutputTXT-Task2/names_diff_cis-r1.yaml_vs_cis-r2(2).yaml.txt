@@ -1,0 +1,21 @@
+Profile
+Key Stakeholders
+Apply the Correct Version of a Benchmark
+Managed Services
+Kubernetes Service Configuration
+CIS Controls®
+Recommendations
+CIS Critical Security Controls®
+Kubelet Security Configuration
+CIS Control: Controls Version Control IG 1 IG 2 IG 3
+Security Management
+Table of Contents
+Kubernetes Security Configuration
+Configuration of Active Kubernetes Service
+Exceptions
+Manage Kubernetes Service
+Remediation
+Summary
+Terms of Use
+General Policies
+CIS Amazon Elastic Kubernetes Service (EKS) Benchmark v1.2.0

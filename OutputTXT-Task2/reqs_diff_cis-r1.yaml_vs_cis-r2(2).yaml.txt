@@ -1,0 +1,33 @@
+Profile,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Kubernetes Security Configuration,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+CNI Plugin and Network Policies,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,4.3.1 (Manual, L1) The CNI plugin must support network policies - confirm the deployed CNI (e.g., Calico, Cilium, or VPC CNI with network policy support) enforces network policies.
+CNI Plugin and Network Policies,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,4.3.2 (Automated, L1) All Namespaces must have Network Policies defined - create default-deny ingress/egress NetworkPolicy objects in every namespace.
+CNI Plugin and Network Policies,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,Verify that the CNI plugin must support network policies, and ensure that all Namespaces have Network Policies defined, and verify the Authorization Mode is set to Webhook.
+Configuration of Active Kubernetes Service,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,NA
+Managed Services,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,NA
+Key Stakeholders,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Apply the Correct Version of a Benchmark,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Secrets Management,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,3.3.5 Ensure that the --secret-value must be set to a specific value.
+Secrets Management,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,3.3.4 Ensure that a Secret key is configured - the secret key must be set to a specific value.
+Secrets Management,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,3.3.2 Secrets must be configured as files - The `--secret-config` argument and --secret-value must be set.
+Secrets Management,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,3.3.3 Ensure that a Client CA File is Configured - Confirm that a client CA file exists to allow clients to verify that the secrets are coming from a trusted source.
+Secrets Management,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,3.3.1 Secrets must be mounted as files rather than as environment variables - use volume mounts with secretKeyRef, not env.valueFrom.
+Secrets Management,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,Ensure that the --read-only-port argument is enabled. Audit Method 1: Check the value of the --read-only-port parameter.
+Exceptions,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Manage Kubernetes Service,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,NA
+Kubernetes Service Configuration,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,NA
+Remediation,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+CIS Controls®,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Summary,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+CIS Amazon Elastic Kubernetes Service (EKS) Benchmark v1.2.0,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,NA
+Terms of Use,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+Recommendations,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+CIS Critical Security Controls®,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
+General Policies,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,NA
+Kubelet Security Configuration,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,NA
+CIS Control: Controls Version Control IG 1 IG 2 IG 3,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,NA
+Security Management,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,NA
+General Namespace Policies,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,4.4.1 (Manual, L1) Administrative boundaries must be created between resources using namespaces - group workloads by team, environment, or sensitivity level.
+General Namespace Policies,ABSENT-IN-cis-r2(2).yaml,PRESENT-IN-cis-r1.yaml,4.4.2 (Manual, L2) Pod Security Policies - Minimize the access to the service account via security groups.
+General Namespace Policies,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,Audit Method 1: Verify that the --read-only-port parameter is not set to 0. Audit Method 2: Verify that the --read-only-port parameter is set to 0
+Table of Contents,ABSENT-IN-cis-r1.yaml,PRESENT-IN-cis-r2(2).yaml,NA
