@@ -1,0 +1,5 @@
+# Kubescape controls mapped from detected differences
+# Format: CONTROL_ID|Control Name|Severity
+C-0012|Applications credentials in configuration files|High
+C-0054|Cluster internal networking|Medium
+C-0066|Secret/etcd encryption enabled|High
