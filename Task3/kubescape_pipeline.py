@@ -800,18 +800,7 @@ def main(file_a: str, file_b: str, zip_path: str,
 # ─────────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    # ── Run all four tests first ──────────────────────────────────────────
-    print("\n" + "█"*60)
-    print("  RUNNING TEST SUITE")
-    print("█"*60)
-    test_detect_differences()
-    test_map_to_kubescape_controls()
-    test_run_kubescape_scan()
-    test_export_to_csv()
-    print("\n" + "█"*60)
-    print("  ALL TESTS PASSED")
-    print("█"*60)
-
+    
     # ── Full pipeline on the real uploaded files ──────────────────────────
     FILE_A   = "OutputTXT-Task2/names_diff_cis-r1.yaml_vs_cis-r2(2).yaml.txt"
     FILE_B   = "OutputTXT-Task2/names_diff_cis-r1.yaml_vs_cis-r3.yaml.txt"
