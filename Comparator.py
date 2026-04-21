@@ -164,5 +164,36 @@ def main():
 
     print("\nTask 2 Execution Finished Successfully.")
 
+def task2(file1_path, file2_path):
+    
+    file1_name = os.path.basename(file1_path)
+    file2_name = os.path.basename(file2_path)
+    
+    # 1. Load Files
+    print("\nLoading files...")
+    data1, data2 = load_yaml_files(file1_path, file2_path)
+    
+    if data1 is None or data2 is None:
+        print("Failed to load one or both YAML files. Exiting.")
+        return
+
+    # Create output directory if it doesn't exist
+    output_dir = "OutputTXT"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    # 2. Compare Names
+    names_output = os.path.join(output_dir, f"names_diff_{file1_name}_vs_{file2_name}.txt")
+    compare_element_names(data1, file1_name, data2, file2_name, names_output)
+    
+    # 3. Compare Requirements
+    reqs_output = os.path.join(output_dir, f"reqs_diff_{file1_name}_vs_{file2_name}.txt")
+    compare_element_requirements(data1, file1_name, data2, file2_name, reqs_output)
+
+    print("\nTask 2 Execution Finished Successfully.")
+
+    return names_output, reqs_output
+
+
 if __name__ == '__main__':
     main()

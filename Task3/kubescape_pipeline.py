@@ -1,5 +1,7 @@
 """
 Claude was used to develop this code
+
+
 kubescape_pipeline.py
 ─────────────────────
 Four-function pipeline that:

@@ -98,23 +98,28 @@ def thoughtChainPrompter(filenum, splitnum, example):
     splitfile.close()
     return finString
 
-def extractor():
-    print("Please input the number of the first CIS Requirement document you wish to run analysis on: ")
-    input1 = input()
-    while not input1.isnumeric() or 0 > int(input1) or int(input1) > 4:
-        print("Invalid input. Again, please input the first CIS document number (1-4) that you wish to analyze: ")
-        input1 = input()
-    print("Thank you. Please input the number of the second CIS Requirement document you wish to run analysis on: ")
-    input2 = input()
-    while not input2.isnumeric() or 0 > int(input2) or int(input2) > 4:
-        print("Invalid input. Again, please input the second CIS document number (1-4) that you wish to analyze: ")
-        input2 = input()
-    print("Thank you.")
+def extractor(fileString1, fileString2):
+    # print("Please input the number of the first CIS Requirement document you wish to run analysis on: ")
+    # input1 = input()
+    # while not input1.isnumeric() or 0 > int(input1) or int(input1) > 4:
+    #     print("Invalid input. Again, please input the first CIS document number (1-4) that you wish to analyze: ")
+    #     input1 = input()
+    # print("Thank you. Please input the number of the second CIS Requirement document you wish to run analysis on: ")
+    # input2 = input()
+    # while not input2.isnumeric() or 0 > int(input2) or int(input2) > 4:
+    #     print("Invalid input. Again, please input the second CIS document number (1-4) that you wish to analyze: ")
+    #     input2 = input()
+    # print("Thank you.")
 
     #Build the file names and initialize the pdfs
-    fileString1 = dir_path + "/SourcePDFs/cis-r" + str(input1) + ".pdf"
-    fileString2 = dir_path + "/SourcePDFs/cis-r" + str(input2) + ".pdf"
+    # fileString1 = dir_path + "/SourcePDFs/cis-r" + str(input1) + ".pdf"
+    # fileString2 = dir_path + "/SourcePDFs/cis-r" + str(input2) + ".pdf"
+    if not fileString1.endsWith(".pdf") or not fileString2.endsWith(".pdf"):
+        raise ValueError(f"Extractor requires that both file strings end with .pdf. Received {fileString1} and {fileString2}")
+
     file1 = pypdf.PdfReader(fileString1)
+    input1 = fileString1[-5]
+    input2 = fileString2[-5]
 
 
     #Build the splits for dividing the files (Dividing each of them into 4,
@@ -270,7 +275,8 @@ def extractor():
 """
     
     #WATCH THIS DRIVE, NOW WITH YAML
-    outyaml1 = open(dir_path + "/OutputYAMLs/" + "cis-r" + str(input1) + '.yaml', 'w')
+    outyaml1_path = dir_path + "/OutputYAMLs/" + "cis-r" + str(input1) + '.yaml'
+    outyaml1 = open(outyaml1_path, 'w')
     outfile1.write("\n \nGemma3-1B \nPrompt: \"Take the given text and identify key data elements within it. You should only return a nested dictionary written " \
         "as a Python code block focusing on the found key data elements and all of the specific requirements tied to them by following the format of this example:" + guide + 
         "\nDo not give an overview of the document. Do not simply summarize the sections or pages. Do not organize by page. Do not list recommendations nor remediations. Explicitly "
@@ -448,7 +454,8 @@ def extractor():
     #Aaaaaand that's file 2 for few prompt!
     #More unabashed copying inbound!
     testfile = open(teststring, 'w')
-    outyaml2 = open(dir_path + "/OutputYAMLs/" + "cis-r" + str(input2)  + '(2).yaml', 'w')
+    outyaml2_path = dir_path + "/OutputYAMLs/" + "cis-r" + str(input2)  + '(2).yaml'
+    outyaml2 = open(outyaml2_path, 'w')
     outfile2.write("\n \nGemma3-1B \nPrompt: Take the given text, a piece of a CIS benchmark document, and identify key data elements within it. You should only return " \
         "a nested dictionary formatted for Python focusing on the found key data elements and all of the specific requirements tied to them by following the format of this " \
         "example:" + guide + "\nDo not give an overview of the document. Do not simply summarize the sections or pages. Do not organize by page. Do not list recommendations "
@@ -526,6 +533,8 @@ def extractor():
         
     outfile2.close()
     outyaml2.close()
+
+    return outyaml1_path, outyaml2_path
 
 if __name__ == '__main__':
     extractor()
