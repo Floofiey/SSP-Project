@@ -4,7 +4,10 @@ import pypdf
 import math
 import yaml
 import os
+from huggingface_hub import login
 
+# I used claude to draft this code
+login(token=os.environ["HF_TOKEN"])
 
 #Okay so this code is just copied from Hugging Face's tutorial
 model_id = "google/gemma-3-1b-it"
