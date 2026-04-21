@@ -7,6 +7,7 @@ anyio==4.12.1
 asarPy==1.0.1
 asttokens==3.0.1
 attrs==25.4.0
+bitsandbytes>=0.46.1
 certifi==2026.2.25
 charset-normalizer==3.4.6
 click==8.3.1
