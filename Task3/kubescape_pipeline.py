@@ -808,9 +808,6 @@ if __name__ == "__main__":
 
     # If the real ZIP isn't uploaded, build a synthetic one for the demo
     if not os.path.isfile(ZIP_PATH):
-        print("\n[INFO] project-yamls.zip not found — using synthetic YAML fixtures.")
-        import tempfile as _tf
-        _tmp = _tf.mkdtemp()
-        ZIP_PATH = _make_test_zip(_tmp)
+        raise ValueError("project-yamls.zip does not exist")
 
     main(FILE_A, FILE_B, ZIP_PATH)
