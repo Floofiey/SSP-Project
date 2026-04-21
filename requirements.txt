@@ -62,6 +62,7 @@ pure_eval==0.2.3
 pyarrow==23.0.1
 Pygments==2.19.2
 pyparsing==3.3.2
+pypdf
 python-dateutil==2.9.0.post0
 PyYAML==6.0.3
 pyzmq==27.1.0
