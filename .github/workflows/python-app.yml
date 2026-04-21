@@ -28,7 +28,7 @@ jobs:
         pip install -r requirements.txt
     - name: Test tasks 
       env:
-        HF_TOKEN: ${{ secrets.HF_TOKEN }}  # injects secret as env var
+        HF_TOKEN: ${{ secrets.HF_TOKEN }}  # injects secret as env var - I used Claude Code to write this line
       run: |
         # stop the build if there are Python syntax errors or undefined names
         #flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
