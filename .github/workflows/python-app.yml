@@ -32,7 +32,10 @@ jobs:
       run: |
         python -m run_all_tests
     - name: Generate PyInstaller Bundle
-      run: |
-        pyinstaller run_full_project.py
+      run: pyinstaller run_full_project.py
+    - uses: actions/upload-artifact@v7
+      with:
+        name: python-bundle
+        path: /home/runner/work/SSP-Project/SSP-Project/dist
 
 
