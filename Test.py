@@ -14,7 +14,7 @@ model = Gemma3ForCausalLM.from_pretrained(
 ).eval()
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
-f = pypdf.PdfReader('cis-r3.pdf')
+f = pypdf.PdfReader('SourcePDFs/cis-r3.pdf')
 pdfstring = ""
 pagenum = math.floor(len(f.pages) / 4)
 for i in range(pagenum):
