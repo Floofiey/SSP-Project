@@ -1,4 +1,4 @@
-from kubescape_pipeline import *
+from Task3.kubescape_pipeline import *
 
 
 test_detect_differences()

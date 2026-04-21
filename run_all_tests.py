@@ -1,0 +1,1 @@
+import Task3.run_task3_tests
