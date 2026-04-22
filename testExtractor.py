@@ -8,7 +8,7 @@ sourcePath = os.path.dirname(os.path.realpath(__file__)) + "/SourcePDFs/"
 pdfoutPath = os.path.dirname(os.path.realpath(__file__)) + "/OutputPDFs/"
 
 def testPdfSplit():
-    sourcestring = sourcePath + "cis-r1test.pdf"
+    sourcestring = sourcePath + "cis-r1.pdf"
     pdf = pypdf.PdfReader(sourcestring)
     splits = Extractor.calcSplits(len(pdf.pages))
     Extractor.PDFsplit(sourcestring, "1", splits)

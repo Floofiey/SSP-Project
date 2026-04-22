@@ -7,7 +7,7 @@ import os
 from huggingface_hub import login
 
 
-login(token=os.environ["HF_TOKEN"])
+#login(token=os.environ["HF_TOKEN"])
 
 #Okay so this code is just copied from Hugging Face's tutorial
 model_id = "google/gemma-3-1b-it"
@@ -39,7 +39,7 @@ def PDFsplit(pdf, sourcenum, splits):
         writer = pypdf.PdfWriter()
 
         # output pdf file name
-        outputpdf = pdf.split('SSP-Project/')[0] + "SSP-Project/OutputPDFs/" + "cis-r" + sourcenum + str(i) + '.pdf'
+        outputpdf = pdf.split('SourcePDFs/')[0] + "OutputPDFs/" + "cis-r" + sourcenum + str(i) + '.pdf'
 
         # adding pages to pdf writer object
         for page in range(start,end):
