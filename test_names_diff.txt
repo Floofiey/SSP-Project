@@ -1,1 +1,10 @@
-NO DIFFERENCES IN REGARDS TO ELEMENT NAMES
+Kubelet Security Configuration
+Internal Only - General
+Kubernetes Service Configuration
+EncryptionConfig
+Configuration of Active Kubernetes Service
+Managed Services
+CIS Control: Controls Version Control IG 1 IG 2 IG 3
+Manage Kubernetes Service
+Security Management
+CIS Amazon Elastic Kubernetes Service (EKS) Benchmark v1.2.0

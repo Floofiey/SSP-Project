@@ -6,7 +6,7 @@ import yaml
 import os
 from huggingface_hub import login
 
-# I used claude to draft this code
+
 login(token=os.environ["HF_TOKEN"])
 
 #Okay so this code is just copied from Hugging Face's tutorial
@@ -111,10 +111,14 @@ def extractor(fileString1, fileString2):
     #     input2 = input()
     # print("Thank you.")
 
+        #The code above is necessary if you're running the Extractor by itself.
+        # Since the project is likely being run as a full package,
+        # It proves unnecessary and thus is commented out.
+
     #Build the file names and initialize the pdfs
     # fileString1 = dir_path + "/SourcePDFs/cis-r" + str(input1) + ".pdf"
     # fileString2 = dir_path + "/SourcePDFs/cis-r" + str(input2) + ".pdf"
-    if not fileString1.endsWith(".pdf") or not fileString2.endsWith(".pdf"):
+    if not fileString1.endswith(".pdf") or not fileString2.endswith(".pdf"):
         raise ValueError(f"Extractor requires that both file strings end with .pdf. Received {fileString1} and {fileString2}")
 
     file1 = pypdf.PdfReader(fileString1)
@@ -139,12 +143,15 @@ def extractor(fileString1, fileString2):
    
         #Step 1: I'm making the output file.
     outstring = dir_path + "/OutputTXT/cis-r" + str(input1)
+    promptfilepath = dir_path + "/PROMPT.md"
+    promptsout = open(promptfilepath, 'w')
     outfile1 = open(outstring + ".txt", 'w')
     outfile1.write("Gemma3-1B \nPrompt: Take the following piece of a requirements document, and identify key data elements as well as all requirements the data' \
                         element is mapped to, returning a Python nested dictionary of elements and requirements: \nZero shot  \n output: ")
     for i in range(4):
         currPrompt = ''
         currPrompt = zeroShotPrompter(input1, i)
+        promptsout.write("Type: Zero Shot. \nPrompt " + str(i) + ":\n" + currPrompt)
         #Okay this should rewrite the prompt every time to feed it into this nightmare
         #   And turn it into something usable
         zeroPrompt1 = [
@@ -190,6 +197,7 @@ def extractor(fileString1, fileString2):
         currPrompt = fewShotPrompter(input1, i)
         #Okay this should rewrite the prompt every time to feed it into this nightmare
         #   And turn it into something usable
+        promptsout.write("Type: Few Shot. \nPrompt " + str(i) + ":\n" + currPrompt)
         fewPrompt1 = [
             [
                 {
@@ -347,6 +355,7 @@ def extractor(fileString1, fileString2):
                 yamlstring = eval(yamlstring)
                 yaml.dump(yamlstring, outyaml1)
                 valid = True
+                promptsout.write("Type: Chain of Thought. \nPrompt " + str(i) + ":\n" + currPrompt)
                 print("Part " + str (i + 1) + " of PDF 1 successfully analyzed, continuing.")
             except:
                 print ("welp, couldn't write part " + str(i + 1) + " of the yaml file, retrying.")
@@ -357,6 +366,7 @@ def extractor(fileString1, fileString2):
     outyaml1.close()
     outfile1.close()
     
+    
 #Baller, let's do file 2
     
     file2 = pypdf.PdfReader(fileString2)
@@ -364,6 +374,7 @@ def extractor(fileString1, fileString2):
     PDFsplit(fileString2, input2, splits2)
     file2.close()
 
+    promptsout.write ("\n\n\nBEGIN FILE 2\n\n\n\n")
     #Yo watch this copy/paste from file1
     outstring = dir_path + "/OutputTXT/cis-r" + str(input2) + "(2).txt"
     teststring = dir_path + "/OutputTXT/FILE2TESTING.txt"
@@ -375,6 +386,7 @@ def extractor(fileString1, fileString2):
         currPrompt = zeroShotPrompter(input2, i)
         #Okay this should rewrite the prompt every time to feed it into this nightmare
         #   And turn it into something usable
+        promptsout.write("Type: Zero Shot. \nPrompt " + str(i) + ":\n" + currPrompt)
         zeroPrompt2 = [
             [
                 {
@@ -418,6 +430,7 @@ def extractor(fileString1, fileString2):
         currPrompt = fewShotPrompter(input2, i)
         #Okay this should rewrite the prompt every time to feed it into this nightmare
         #   And turn it into something usable
+        promptsout.write("Type: Few Shot. \nPrompt " + str(i) + ":\n" + currPrompt)
         fewPrompt2 = [
             [
                 {
@@ -524,6 +537,7 @@ def extractor(fileString1, fileString2):
                 yamlstring = eval(yamlstring)
                 yaml.dump(yamlstring, outyaml2)
                 valid = True
+                promptsout.write("Type: Chain of Thought. \nPrompt " + str(i) + ":\n" + currPrompt)
                 print("Part " + str(i + 1) + " of PDF 2 successfully analyzed, continuing.")
             except:
                 print ("welp, couldn't write part " + str(i + 1) + " of yaml file 2, retrying.")
@@ -533,6 +547,7 @@ def extractor(fileString1, fileString2):
         
     outfile2.close()
     outyaml2.close()
+    promptsout.close()
 
     return outyaml1_path, outyaml2_path
 

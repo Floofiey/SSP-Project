@@ -2,8 +2,8 @@ import os
 from Comparator import load_yaml_files, compare_element_names, compare_element_requirements
 
 def run_test_cases():
-    f1 = 'cis-r1.yaml'
-    f2 = 'cis-r3.yaml'
+    f1 = os.path.dirname(os.path.realpath(__file__)) + '/OutputYAMLs/cis-r1.yaml'
+    f2 = os.path.dirname(os.path.realpath(__file__)) + '/OutputYAMLs/cis-r3.yaml'
     
     print("--- Running Test Cases ---")
 
