@@ -7,7 +7,7 @@ import torch
 sourcePath = os.path.dirname(os.path.realpath(__file__)) + "/SourcePDFs/"
 pdfoutPath = os.path.dirname(os.path.realpath(__file__)) + "/OutputPDFs/"
 genpath = os.path.dirname(os.path.realpath(__file__))
-genpath = genpath.split("SSP-Project/")[0]
+genpath = genpath.split("SSP-Project/")[0] + "SSP-Project"
 
 def testPdfSplit():
     sourcestring = sourcePath + "cis-r1.pdf"
