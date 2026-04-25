@@ -13,7 +13,8 @@ google/gemma-3-1b-it
 IT IS REQUIRED TO DOWNLOAD THE REPO FOR FILE ORGANIZATION PURPOSES
 PLEASE USE THE SOURCE PDF'S AS STORED IN THE REPO AS THE INPUTS
 
-The binary is located in the dist folder
+The binary was too big to host on github, please use
+pyinstaller --onefile run_full_project.py to get it standalone
 
 When running the file, it requires the file paths 
 to the two requirement documents as extra arguments to the function.
