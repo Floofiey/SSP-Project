@@ -6,6 +6,8 @@ import torch
 
 sourcePath = os.path.dirname(os.path.realpath(__file__)) + "/SourcePDFs/"
 pdfoutPath = os.path.dirname(os.path.realpath(__file__)) + "/OutputPDFs/"
+genpath = os.path.dirname(os.path.realpath(__file__))
+genpath = genpath.split("SSP-Project/")[0] + "SSP-Project/"
 
 def testPdfSplit():
     sourcestring = sourcePath + "cis-r1.pdf"
@@ -68,11 +70,11 @@ element4:
 """
 
 def test_prompters():
-    zero = Extractor.zeroShotPrompter(1, 1)
+    zero = Extractor.zeroShotPrompter(1, 1, genpath)
     assert zero, "ERROR: Zero Shot Prompt Failed to initialize"
-    few = Extractor.fewShotPrompter(1, 1)
+    few = Extractor.fewShotPrompter(1, 1, genpath)
     assert few, "ERROR: Few Shot Prompt Failed to initialize"
-    chain = Extractor.thoughtChainPrompter(1, 1, guide)
+    chain = Extractor.thoughtChainPrompter(1, 1, guide, genpath)
     assert chain, "ERROR: Chain of Thought Prompt Failed to initialize"
     print("All prompt generators tested, If there's no errors above, you're good.")
 
@@ -83,7 +85,7 @@ def testgeneration():
         model_id, quantization_config=quantization_config
     ).eval()
     tokenizer = AutoTokenizer.from_pretrained(model_id)
-    prompt = Extractor.zeroShotPrompter(1, 1)
+    prompt = Extractor.zeroShotPrompter(1, 1, genpath)
     zeroPrompt = [
             [
                 {
@@ -109,7 +111,7 @@ def testgeneration():
     assert outputs, "ERROR: Zero Shot Generation failed"
 
     
-    prompt = Extractor.fewShotPrompter(1, 1)
+    prompt = Extractor.fewShotPrompter(1, 1, genpath)
     zeroPrompt = [
             [
                 {
@@ -136,7 +138,7 @@ def testgeneration():
 
 
     
-    prompt = Extractor.thoughtChainPrompter(1, 1, guide)
+    prompt = Extractor.thoughtChainPrompter(1, 1, guide, genpath)
     zeroPrompt = [
             [
                 {
