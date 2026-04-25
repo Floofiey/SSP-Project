@@ -20,8 +20,6 @@ model = Gemma3ForCausalLM.from_pretrained(
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-#Getting a string for the directory for file ops
-dir_path = os.path.dirname(os.path.realpath(__file__))
 
 #This function copied directly from G4G, Source: https://www.geeksforgeeks.org/python/working-with-pdf-files-in-python/
 def PDFsplit(pdf, sourcenum, splits):
@@ -68,9 +66,9 @@ def calcSplits(totalpages):
     finArray = [quarter, half, three_fourths]
     return finArray
 
-def zeroShotPrompter(filenum, splitnum):
+def zeroShotPrompter(filenum, splitnum, dirpath):
     #okay let's fuck around and find out
-    splitname = dir_path + '/OutputPDFs/cis-r' + str(filenum) + str(splitnum) + '.pdf'
+    splitname = dirpath + '/OutputPDFs/cis-r' + str(filenum) + str(splitnum) + '.pdf'
     splitfile = pypdf.PdfReader(splitname)
     finString = 'Take the following piece of a requirements document, and identify key data elements as well as all requirements the data element is mapped to, returning a Python nested dictionary of elements and requirements:  '
     for page in splitfile.pages:
@@ -78,9 +76,9 @@ def zeroShotPrompter(filenum, splitnum):
     splitfile.close()
     return finString
 
-def fewShotPrompter(filenum, splitnum):
+def fewShotPrompter(filenum, splitnum, dirpath):
     #AS WITH EVERYTHING IN THIS FILE, LET'S COPY/PASTE SOMETHING ELSE
-    splitname = dir_path + '/OutputPDFs/cis-r' + str(filenum) + str(splitnum) + '.pdf'
+    splitname = dirpath + '/OutputPDFs/cis-r' + str(filenum) + str(splitnum) + '.pdf'
     splitfile = pypdf.PdfReader(splitname)
     finString = "Take the following piece of a requirements document, and identify key data elements as well as all ' \
                    requirements the data element is mapped to, returning a Python nested dictionary of elements and requirements with the format {elementnumber : [{name : }, {requirements : [req1, req2, ...]}]}:  "
@@ -89,8 +87,8 @@ def fewShotPrompter(filenum, splitnum):
     splitfile.close()
     return finString
 
-def thoughtChainPrompter(filenum, splitnum, example):
-    splitname = dir_path + '/OutputPDFs/cis-r' + str(filenum) + str(splitnum) + '.pdf'
+def thoughtChainPrompter(filenum, splitnum, example, dirpath):
+    splitname = dirpath + '/OutputPDFs/cis-r' + str(filenum) + str(splitnum) + '.pdf'
     splitfile = pypdf.PdfReader(splitname)
     finString = "Take the given text and identify key data elements within it. You should only return a nested dictionary written as a Python code block focusing on the found key data elements and all of the specific requirements tied to them by following the format of this example:" + example + "\nDo not give an overview of the document. Do not simply summarize the sections or pages. Do not organize by page. Do not list recommendations nor remediations. Explicitly focus on the data element names and the requirements tied to them, citing the requirement number for each entry. Again, format it as a Python nested dictionary within a code block. Here is the text to analyze: "
     for page in splitfile.pages:
@@ -120,7 +118,7 @@ def extractor(fileString1, fileString2):
     # fileString2 = dir_path + "/SourcePDFs/cis-r" + str(input2) + ".pdf"
     if not fileString1.endswith(".pdf") or not fileString2.endswith(".pdf"):
         raise ValueError(f"Extractor requires that both file strings end with .pdf. Received {fileString1} and {fileString2}")
-
+    dir_path = fileString1.split("SSP-Project/")[0] + "SSP-Project/"
     file1 = pypdf.PdfReader(fileString1)
     input1 = fileString1[-5]
     input2 = fileString2[-5]
@@ -150,7 +148,7 @@ def extractor(fileString1, fileString2):
                         element is mapped to, returning a Python nested dictionary of elements and requirements: \nZero shot  \n output: ")
     for i in range(4):
         currPrompt = ''
-        currPrompt = zeroShotPrompter(input1, i)
+        currPrompt = zeroShotPrompter(input1, i, dir_path)
         promptsout.write("Type: Zero Shot. \nPrompt " + str(i) + ":\n" + currPrompt)
         #Okay this should rewrite the prompt every time to feed it into this nightmare
         #   And turn it into something usable
@@ -194,7 +192,7 @@ def extractor(fileString1, fileString2):
     outfile1.write("\n \nGemma3-1B \nPrompt: Take the following piece of a requirements document, and identify key data elements as well as all requirements the data element is mapped to, returning a Python nested dictionary of elements and requirements with the format {elementnumber : [{name : }, {requirements : [req1, req2, ...]}]}: \nFew shot  \n output: ")
     for i in range(4):
         currPrompt = ''
-        currPrompt = fewShotPrompter(input1, i)
+        currPrompt = fewShotPrompter(input1, i, dir_path)
         #Okay this should rewrite the prompt every time to feed it into this nightmare
         #   And turn it into something usable
         promptsout.write("Type: Few Shot. \nPrompt " + str(i) + ":\n" + currPrompt)
@@ -303,7 +301,7 @@ def extractor(fileString1, fileString2):
                 print ("Part " + str(i + 1) + " of pdf 1 is being deemed impossible due to repeated failures of valid output. Continuing to next string.")
                 break
             currPrompt = ''
-            currPrompt = thoughtChainPrompter(input1, i, guide)
+            currPrompt = thoughtChainPrompter(input1, i, guide, dir_path)
             #Okay this should rewrite the prompt every time to feed it into this nightmare
             #   And turn it into something usable
             thoughtChainPrompt1 = [
@@ -377,13 +375,12 @@ def extractor(fileString1, fileString2):
     promptsout.write ("\n\n\nBEGIN FILE 2\n\n\n\n")
     #Yo watch this copy/paste from file1
     outstring = dir_path + "/OutputTXT/cis-r" + str(input2) + "(2).txt"
-    teststring = dir_path + "/OutputTXT/FILE2TESTING.txt"
     outfile2 = open(outstring, 'w')
     outfile2.write("Gemma3-1B \nPrompt: Take the following piece of a requirements document, and identify key data elements as well as all requirements the data' \
                         element is mapped to, returning a Python nested dictionary of elements and requirements: \nZero shot  \n output: ")
     for i in range(4):
         currPrompt = ''
-        currPrompt = zeroShotPrompter(input2, i)
+        currPrompt = zeroShotPrompter(input2, i, dir_path)
         #Okay this should rewrite the prompt every time to feed it into this nightmare
         #   And turn it into something usable
         promptsout.write("Type: Zero Shot. \nPrompt " + str(i) + ":\n" + currPrompt)
@@ -427,7 +424,7 @@ def extractor(fileString1, fileString2):
     outfile2.write("\n\nGemma3-1B \nPrompt: Take the following piece of a requirements document, and identify key data elements as well as all requirements the data element is mapped to, returning a Python nested dictionary of elements and requirements with the format {elementnumber : [{name : }, {requirements : [req1, req2, ...]}]}: \nFew shot  \n output: ")
     for i in range(4):
         currPrompt = ''
-        currPrompt = fewShotPrompter(input2, i)
+        currPrompt = fewShotPrompter(input2, i, dir_path)
         #Okay this should rewrite the prompt every time to feed it into this nightmare
         #   And turn it into something usable
         promptsout.write("Type: Few Shot. \nPrompt " + str(i) + ":\n" + currPrompt)
@@ -466,7 +463,6 @@ def extractor(fileString1, fileString2):
     
     #Aaaaaand that's file 2 for few prompt!
     #More unabashed copying inbound!
-    testfile = open(teststring, 'w')
     outyaml2_path = dir_path + "/OutputYAMLs/" + "cis-r" + str(input2)  + '(2).yaml'
     outyaml2 = open(outyaml2_path, 'w')
     outfile2.write("\n \nGemma3-1B \nPrompt: Take the given text, a piece of a CIS benchmark document, and identify key data elements within it. You should only return " \
@@ -484,7 +480,7 @@ def extractor(fileString1, fileString2):
                 print("Part " + str(i + 1) + " of pdf 2 is being deemed impossible due to repeated failures of valid output. Continuing to next string.")
                 break
             currPrompt = ''
-            currPrompt = thoughtChainPrompter(input2, i, guide)
+            currPrompt = thoughtChainPrompter(input2, i, guide, dir_path)
             #Okay this should rewrite the prompt every time to feed it into this nightmare
             #   And turn it into something usable
             thoughtChainPrompt2 = [
@@ -518,7 +514,6 @@ def extractor(fileString1, fileString2):
             totalstring = ''
             for string in outputs:
                 totalstring += string
-            testfile.write(totalstring)
             totalstring = totalstring.split('<end_of_turn>')[1]
         
             #OKAY SO. In order to get this to parse properly to work in YAML

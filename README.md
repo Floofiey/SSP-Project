@@ -10,9 +10,14 @@ Artemis Dolihite - rzd0070@auburn.edu
 AI Model
 google/gemma-3-1b-it
 
+IT IS REQUIRED TO DOWNLOAD THE REPO FOR FILE ORGANIZATION PURPOSES
+PLEASE USE THE SOURCE PDF'S AS STORED IN THE REPO AS THE INPUTS
+
+The binary is located in the dist folder
+
 When running the file, it requires the file paths 
 to the two requirement documents as extra arguments to the function.
-E.G python3 run_full_project file/path/to/cis-r1.pdf file/path/cis-r3.pdf
+E.G ./dist/run_full_project file/path/to/cis-r1.pdf file/path/cis-r3.pdf
 
 Also, if you run into issues with Hugging Face logins in your environment,
  try uncommenting line 10 of Extractor.py,
